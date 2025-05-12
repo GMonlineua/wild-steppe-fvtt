@@ -1,0 +1,9 @@
+{{!-- Because adversaries dont have tracks, this is just a simpler version of an aspect, then i borrow the styling. --}}
+<div class="attribute aspect item" data-item-id="{{id}}">
+  <h3 class="light handle">
+    <span class="itemContextMenu">{{name}}</span>
+  </h3>
+  <div class="drawer {{#if system.collapsed}}hidden{{/if}}">
+    {{{system.enrichedDetails}}}
+  </div>
+</div>

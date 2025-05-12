@@ -1,0 +1,128 @@
+{
+  "Actor": {
+    "types": [
+      "player",
+      "ship"
+    ],
+    "player": {
+      "background": "",
+      "drives": [],
+      "knowledges": {
+        "steppe": 0,
+        "ruin": 0,
+        "old": 0
+      },
+      "origin": "",
+      "post": "",
+      "relationships": [],
+      "skills": {
+        "athletics": 0,
+        "artistry": 0,
+        "trick": 0,
+        "will": 0,
+        "combat": 0,
+        "care": 0,
+        "research": 0,
+        "cooking": 0,
+        "manipulation": 0,
+        "hunting": 0,
+        "craft": 0,
+        "sense": 0
+      },
+      "counters": {
+        "steppe": {
+          "value": 0,
+          "max": 3,
+          "level": 0
+        },
+        "ruin": {
+          "value": 0,
+          "max": 3,
+          "level": 0
+        }
+      }
+    },
+    "ship": {
+      "cargo": [],
+      "drive": "",
+      "ratings": {
+        "armour": {
+          "value": 0,
+          "burn": 0,
+          "max": 4
+        },
+        "speed": {
+          "value": 0,
+          "burn": 0,
+          "max": 4
+        },
+        "resources": {
+          "value": 0,
+          "burn": 0,
+          "max": 4
+        },
+        "team": {
+          "value": 0,
+          "burn": 0,
+          "max": 4
+        },
+        "danger": {
+          "value": 0,
+          "burn": 0,
+          "max": 10
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "aspect",
+      "resource",
+      "temporaryTrack"
+    ],
+    "templates": {
+      "hasDetails": {
+        "details": "",
+        "collapsed": false
+      },
+      "hasTags": {
+        "tags": ""
+      },
+      "hasTrack": {
+        "track": {
+          "value": 0,
+          "burn": 0
+        }
+      },
+      "hasRatingMods": {
+        "ratingMods": []
+      }
+    },
+    "aspect": {
+      "templates": [
+        "hasDetails",
+        "hasTrack"
+      ],
+      "track": {
+        "max": 8
+      },
+      "type": ""
+    },
+    "resource": {
+      "templates": [
+        "hasDetails",
+        "hasTags"
+      ]
+    },
+    "temporaryTrack": {
+      "templates": [
+        "hasDetails",
+        "hasTrack"
+      ],
+      "track": {
+        "max": 8
+      },
+      "type": ""
+    }
+  }
+}

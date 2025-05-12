@@ -1,0 +1,17 @@
+<div id="cargo" class="flex0">
+  <h2 class="corners dark">
+    {{localize "wildsea.cargo"}}
+    <a class="addItem" data-item-type="cargo">
+      <i class="fas fa-plus"></i>
+    </a>
+  </h2>
+  {{#if (any system.cargo)}}
+    <div class="flexcol slim-list spaced">
+      {{#each system.cargo as |item|}}
+        {{> "systems/wild-steppe/templates/shared/slim_item.hbs" item type="cargo"}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="center corners light-transparent padded">{{localize "wildsea.none"}}</p>
+  {{/if}}
+</div>

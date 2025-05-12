@@ -1,0 +1,20 @@
+<form class="wildsea flexcol spaced">
+  <div class="form-group">
+    <label>{{localize "wildsea.counter"}}</label>
+    <div class="form-fields">
+      <select id="counter" name="counter" class="corners">
+        <option value="">{{localize "wildsea.none"}}</option>
+        {{#each counters as |value label|}}
+          <option value="{{label}}" {{#if (eq ../counter label)}}selected{{/if}}>{{localize (concat "wildsea." label)}} (+{{value}}d)</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "wildsea.cut"}}</label>
+    <div class="form-fields">
+      <input id="cut" name="cut" type="number" min="0" placeholder="0" value="{{cut}}" />
+    </div>
+  </div>
+</form>

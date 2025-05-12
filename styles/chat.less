@@ -1,0 +1,64 @@
+// out: false
+
+@import url(./config.less);
+
+.chat-message {
+  background: @white;
+
+  .message-header {
+    column-gap: 0.25rem;
+    margin-bottom: 0.25rem;
+    .title-font();
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+
+    .message-sender {
+      .corners();
+      background: @light-bg;
+      color: @white;
+      padding: 0.5rem 0.5rem 0;
+      text-transform: uppercase;
+    }
+
+    .message-metadata {
+      padding: 0.5rem 0 0;
+    }
+  }
+  .message-content {
+    .body-font();
+    font-size: 0.8rem;
+  }
+
+  &.ic {
+    .message-header {
+      .message-sender {
+        background: @mid-bg;
+      }
+    }
+  }
+
+  &.whisper {
+    background: @light-transparent;
+
+    .message-header {
+      .message-sender {
+        background: @dark-bg;
+      }
+    }
+  }
+}
+
+.dice-roll .dice-formula,
+.dice-roll .dice-total {
+  .corners();
+  background: @light-transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0.25rem;
+}
+
+.dice-tooltip .dice-rolls .roll.cut {
+  opacity: 0.7;
+  color: @red;
+  filter: sepia(0.5) hue-rotate(-60deg);
+}

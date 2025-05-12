@@ -1,0 +1,59 @@
+{
+  "id": "wild-steppe",
+  "name": "wild-steppe",
+  "title": "Дике Поле",
+  "description": "Імплементація системи для Дикого Поля на основі Wild Sea",
+  "version": "0.1",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12.334",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "GMonline-ua",
+      "url": "https://bsky.app/profile/gmonline-ua.bsky.social",
+      "email": "gmonlineua@gmail.com",
+      "discord": "vlad_dracula"
+    }
+  ],
+  "esmodules": [
+    "module/wild-steppe.mjs"
+  ],
+  "styles": [
+    "styles/wild-steppe.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "uk",
+      "name": "Ukrainian",
+      "path": "lang/uk.json"
+    }
+  ],
+  "packs": [
+    {
+      "label": "Прегени",
+      "type": "Actor",
+      "name": "pregens",
+      "path": "packs/pregens",
+      "system": "wild-steppe",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "packFolders": [],
+  "socket": true,
+  "url": "https://github.com/GMonlineua/wild-steppe-fvtt",
+  "manifest": "https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/main/system.json",
+  "download": "https://github.com/GMonlineua/wild-steppe-fvtt/releases/download/v0.1/foundry.zip",
+  "license": "https://github.com/GMonlineua/wild-steppe-fvtt/blob/main/LICENSE.md",
+  "changelog": "https://github.com/GMonlineua/wild-steppe-fvtt/wiki/Changelog",
+  "bugs": "https://github.com/MagpieRook/wild-steppe/issues/new"
+}

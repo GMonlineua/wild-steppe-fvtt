@@ -1,0 +1,37 @@
+<div id="conditions" class="flex0">
+  <div class="">
+    <table class="no-margin">
+      <thead>
+        <tr>
+          <th>{{localize "wildsea.rating"}}</th>
+          <th class="right">
+            <a class="addRatingMod"><i class="fas fa-plus"></i></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if (any system.ratingMods)}}
+          {{#each system.ratingMods as |ratingMod|}}
+            <tr>
+              <td>
+                <a class="editRatingMod" data-rating-mod-id="{{ratingMod.id}}">
+                  {{localize (concat "wildsea." ratingMod.rating)}}
+                  {{displayNumber ratingMod.value}}
+                </a>
+              </td>
+              <td class="right">
+                <a class="deleteRatingMod" data-rating-mod-id="{{ratingMod.id}}"><i class="fas fa-trash"></i></a>
+              </td>
+            </tr>
+          {{/each}}
+        {{else}}
+          <tr>
+            <td class="center" colspan="2">
+              {{localize "wildsea.none"}}
+            </td>
+          </tr>
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+</div>

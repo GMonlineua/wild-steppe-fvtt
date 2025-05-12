@@ -1,0 +1,16 @@
+<form class="wildsea">
+  <div class="flexcol spaced">
+    <div id="header" class="flexrow spaced">
+      <div class="flexrow spaced">
+        <div class="flex0 img"><img src="{{item.img}}" data-edit="img" title="{{item.name}}" /></div>
+        <div class="flexcol spaced">
+          <input id="name" class="corners" type="text" name="name" value="{{item.name}}" placeholder="{{localize "wildsea.name"}}" />
+          <div class="flexrow spaced">
+            {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.tags" label="wildsea.tags" value=system.tags}}
+            {{> "systems/wild-steppe/templates/shared/select_field.hbs" field="system.type" label="wildsea.type" value=system.type includeEmpty=true selectOptions=config.resourceTypes}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

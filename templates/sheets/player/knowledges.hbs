@@ -1,0 +1,28 @@
+<div id="knowledges" class="flex0">
+  <h2 class="corners dark">{{localize "wildsea.knowledges"}}</h2>
+  <div class="bordered">
+
+    {{#each knowledgesList as |row|}}
+      <div class="flexrow spaced wide">
+        {{#each row as |knowledge|}}
+          {{#if knowledge}}
+
+            <div class="flexrow list-track">
+              <label data-type="knowledge" data-value="{{knowledge}}">{{localize (concat "wildsea." knowledge)}}</label>
+              <div class="flex0">
+                {{> "systems/wild-steppe/templates/shared/track.hbs"
+                    value=(byKey @root.system.knowledges knowledge)
+                    max=@root.config.knowledgeMax
+                    type="knowledge"
+                    id=knowledge}}
+              </div>
+            </div>
+          {{else}}
+            <div class=""></div>
+          {{/if}}
+        {{/each}}
+      </div>
+    {{/each}}
+
+  </div>
+</div>

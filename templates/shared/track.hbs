@@ -1,0 +1,9 @@
+{{#if (gt max 0)}}
+<a {{#if @root.showBurnTooltip}}data-tooltip="{{localize 'wildsea.track_update'}}"{{/if}}>
+  <ul class="track {{cssClass}}" data-item-id="{{id}}" data-item-type="{{type}}">
+    {{#times max}}
+      {{{trackCell @index ../value ../burn}}}
+    {{/times}}
+  </ul>
+</a>
+{{/if}}

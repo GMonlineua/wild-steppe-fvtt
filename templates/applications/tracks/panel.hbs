@@ -1,0 +1,14 @@
+<section class="track-panel {{position}}">
+  <div class="track-list">
+    {{#each tracks as |track|}}
+      {{#if (or ../options.editable (ne track.visibility 'secret'))}}
+      {{> "systems/wild-steppe/templates/applications/tracks/track.hbs" track=track}}
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class="options text-right">
+    {{#if options.editable}}
+    <a class="addTrack"><i class="fas fa-plus"></i> {{localize "wildsea.TRACKS.addTrack"}}</a>
+    {{/if}}
+  </div>
+</section>

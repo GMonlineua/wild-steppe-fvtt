@@ -1,0 +1,253 @@
+// out: false
+
+@import url(./config.less);
+
+.sheet.journal-entry .journal-entry-content,
+.prosemirror .editor-container {
+  background: @white;
+  .body-font();
+  color: @black;
+
+  .journal-page-header,
+  .journal-page-content {
+    h1,
+    h2,
+    h3,
+    h4 {
+      .title-font();
+      font-weight: 600;
+      border: 0;
+      color: @black;
+      margin: 0 0 0;
+
+      text-transform: initial;
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+    }
+
+    h5 {
+      .body-font();
+      font-weight: bold;
+      margin: 0 0 0.25rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .journal-page-content {
+    p {
+      margin: 0 0 0.5rem;
+      font-size: 0.8rem;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    ul {
+      margin: 0 0 0.5rem;
+    }
+
+    .wildsea-item {
+      margin: 0 0 1rem;
+    }
+
+    .flexrow {
+      column-gap: 1rem;
+    }
+
+    .leaf-bullet();
+
+    small,
+    .small {
+      font-size: 0.7em;
+      text-transform: none;
+      color: @light-bg;
+    }
+
+    .text-red,
+    .highlight-red .small,
+    .highlight-red small {
+      color: @red;
+    }
+    .text-yellow,
+    .highlight-yellow .small,
+    .highlight-yellow small {
+      color: @yellow;
+    }
+    .text-green,
+    .highlight-green .small,
+    .highlight-green small {
+      color: @green;
+    }
+    .text-blue,
+    .highlight-blue .small,
+    .highlight-blue small {
+      color: @blue;
+    }
+    .text-sky,
+    .highlight-sky .small,
+    .highlight-sky small {
+      color: @sky;
+    }
+    .text-purple,
+    .highlight-purple .small,
+    .highlight-purple small {
+      color: @purple;
+    }
+    .text-mid,
+    .highlight-mid .small,
+    .highlight-mid small {
+      color: @mid-bg;
+    }
+
+    .text-white {
+      color: @white;
+    }
+
+    .upcase {
+      text-transform: uppercase;
+    }
+
+    .text-light {
+      color: @light-bg;
+    }
+
+    img {
+      border: 0;
+    }
+
+    .blockquotes();
+
+    table {
+      border-bottom: none;
+
+      tr {
+        vertical-align: top;
+      }
+      &.middle {
+        tr {
+          vertical-align: middle;
+        }
+      }
+
+      thead {
+        background: @table-head;
+        text-shadow: none;
+        border-bottom: none;
+
+        h2 {
+          color: @white;
+        }
+        h3 {
+          color: @table-light;
+        }
+        p {
+          margin: 0;
+        }
+
+        tr {
+          vertical-align: middle;
+        }
+
+        th {
+          padding: 0.5rem;
+        }
+      }
+      tbody {
+        tr {
+          background-color: @white;
+
+          &:nth-child(even) {
+            background-color: @table-light;
+            td:nth-child(even) {
+              background-color: @table-dark;
+            }
+            td:first-child {
+              background-color: @white;
+            }
+          }
+
+          td {
+            padding: 0.5rem 0.5rem 0;
+          }
+        }
+      }
+    }
+
+    .track {
+      display: inline-flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      align-items: center;
+
+      .slots {
+        display: flex;
+        flex: 0;
+        column-gap: 0.25rem;
+        flex-direction: row;
+        height: 1rem;
+        background: linear-gradient(
+          to top,
+          transparent 0%,
+          transparent calc(50% - 1px),
+          @black calc(50% - 1px),
+          @black calc(50% + 1px),
+          transparent calc(50% + 1px),
+          transparent 100%
+        );
+
+        .slot {
+          border: 2px solid @black;
+          border-radius: 50%;
+          height: 1rem;
+          width: 1rem;
+          background: @white;
+        }
+
+        .break {
+          height: 1rem;
+          width: 2px;
+          background: @black;
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .journal-header {
+    .title-font();
+    background: @mid-bg;
+    color: @white;
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+
+    input {
+      color: @white;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 2.5rem;
+      padding: 2rem;
+    }
+  }
+}

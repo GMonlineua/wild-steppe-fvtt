@@ -1,0 +1,87 @@
+<div class="wildsea">
+  <h3>
+    Roll
+  </h3>
+  <div class="flexcol spaced">
+    <div class="dice-roll">
+      <div class="dice-result">
+        <h4 class="corners dice-formula">
+          {{displayFormula}}
+        </h4>
+        <div class="dice-tooltip" style="display: none;">
+          <div class="flexcol spaced">
+            {{#if dicePool.edge}}
+              <div class="flexrow spaced">
+                <label class="padded flex2">{{localize "wildsea.edge"}}</label>
+                <div class="padded flex2">{{localize (concat "wildsea." dicePool.edge)}}</div>
+                <div class="center corners light-transparent padded">
+                  +{{dicePool.edgeDice}}d
+                </div>
+              </div>
+            {{/if}}
+
+            {{#if dicePool.rating}}
+              <div class="flexrow spaced">
+                <label class="padded flex2">{{localize "wildsea.rating"}}</label>
+                <div class="padded flex2">{{localize (concat "wildsea." dicePool.rating)}}</div>
+                <div class="center corners light-transparent padded">
+                  +{{dicePool.ratingDice}}d
+                </div>
+              </div>
+            {{/if}}
+
+            {{#if dicePool.skillType}}
+              <div class="flexrow spaced">
+                <label class="padded flex2">{{localize (concat "wildsea." dicePool.skillType)}}</label>
+                <div class="padded flex2">{{localize (concat "wildsea." dicePool.skillKey)}}</div>
+                <div class="center corners light-transparent padded">
+                  +{{dicePool.skillDice}}d
+                </div>
+              </div>
+            {{/if}}
+
+            {{#if (gt dicePool.advantage 0)}}
+              <div class="flexrow spaced">
+                <label class="padded flex2">{{localize "wildsea.advantage"}}</label>
+                <div class="padded flex2"></div>
+                <div class="center corners light-transparent padded">
+                  +{{dicePool.advantage}}d
+                </div>
+              </div>
+            {{/if}}
+            
+            {{#if (gt dicePool.cut 0)}}
+              <div class="flexrow spaced">
+                <label class="padded flex2">{{localize "wildsea.cut"}}</label>
+                <div class="padded flex2"></div>
+                <div class="center corners light-transparent padded">
+                  {{dicePool.cut}}
+                </div>
+              </div>
+            {{/if}}
+          </div>
+
+          <hr />
+          
+          <!-- results -->
+          <ol class="dice-rolls">
+            {{#each results as |result|}}
+              <li class="roll die d6{{#if result.cut}} cut{{/if}}{{#if result.max}} max{{/if}}">{{result.result}}</li>
+            {{/each}}
+          </ol>
+        </div>
+        <h4 class="corners dice-total">
+          {{total}}
+        </h4>
+        <h3 class="corners dark padded center" data-tooltip="{{localize (concat "wildsea." resultText "Description")}}">
+          {{localize (concat "wildsea." resultText)}}
+        </h3>
+        {{#if twist}}
+        <h4 class="center corners mid padded" data-tooltip="{{localize "wildsea.twistDescription"}}">
+          {{localize "wildsea.twist"}}
+        </h4>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

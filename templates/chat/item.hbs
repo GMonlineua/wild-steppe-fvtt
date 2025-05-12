@@ -1,0 +1,18 @@
+<div class="wildsea">
+  <h3>
+    {{name}}
+    {{#if system.type}}
+      <small class="text-light">{{system.type}}</small>
+    {{/if}}
+  </h3>
+  {{#if system.track}}
+  <ul class="track" data-item-id="{{id}}" data-item-type="{{type}}">
+    {{#times system.track.max}}
+      {{{trackCell @index ../system.track.value ../system.track.burn}}}
+    {{/times}}
+  </ul>
+  {{/if}}
+  {{#if system.details}}
+    {{{system.details}}}
+  {{/if}}
+</div>

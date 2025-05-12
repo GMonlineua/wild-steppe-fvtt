@@ -1,0 +1,23 @@
+<div id="skills" class="flex0">
+  <h2 class="corners dark">{{localize "wildsea.skills"}}</h2>
+  <div class="bordered">
+
+    {{#each skillsList as |row|}}
+      <div class="flexrow spaced wide">
+        {{#each row as |skill|}}
+          {{#if skill}}
+            {{> "systems/wild-steppe/templates/sheets/player/list_track.hbs"
+              name=(localize (concat "wildsea." skill))
+              value=(byKey @root.system.skills skill)
+              max=3
+              id=skill
+              type="skill"}}
+          {{else}}
+            <div class=""></div>
+          {{/if}}
+        {{/each}}
+      </div>
+    {{/each}}
+
+  </div>
+</div>

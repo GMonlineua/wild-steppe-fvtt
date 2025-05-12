@@ -1,0 +1,10 @@
+<div id="ratings" class="flex0">
+  <h2 class="corners dark">
+    {{localize "wildsea.ratings"}}
+  </h2>
+  <div class="flexcol spaced">
+    {{#each config.shipRatings as |rating|}}
+      {{> "systems/wild-steppe/templates/sheets/ship/rating.hbs" rating=rating track=(byKey @root.system.ratings rating)}}
+    {{/each}}
+  </div>
+</div>

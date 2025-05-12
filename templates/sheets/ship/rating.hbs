@@ -1,0 +1,10 @@
+<div class="flexrow corners">
+  <div class="mid rating">
+    <a class="ratingRoll title uppercase text-lg" data-rating="{{rating}}">
+      {{localize (concat "wildsea." rating)}}
+    </a>
+  </div>
+  <div class="flex2 light-transparent">
+    {{> "systems/wild-steppe/templates/shared/track.hbs" track id=rating type="rating" cssClass="padded"}}
+  </div>
+</div>

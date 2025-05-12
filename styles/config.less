@@ -1,0 +1,183 @@
+// out: false
+
+@red: #bb434e;
+@yellow: #f8a923;
+@green: #84966c;
+@blue: #175d7e;
+@sky: #5c9abc;
+@purple: #a95c8d;
+
+@dark-bg: #2e2c20;
+@mid-bg: #626256;
+@light-bg: #858778;
+@light-transparent: #e2e2df;
+
+@table-head: @green;
+@table-dark: #e9f2d9;
+@table-light: #f6faeb;
+
+@black: #2d2a2b;
+@white: #f9f9f9;
+
+@font-face {
+  font-family: 'Teko';
+  src: url(./fonts/Teko/Teko-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url(./fonts/Merriweather/Merriweather-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url(./fonts/Merriweather/Merriweather-Italic.ttf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url(./fonts/Merriweather/Merriweather-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url(./fonts/Merriweather/Merriweather-BoldItalic.ttf);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.body-font() {
+  font-family: 'Merriweather', serif;
+}
+
+.title-font() {
+  font-family: 'Teko', sans-serif;
+  text-transform: uppercase;
+}
+
+.corners() {
+  clip-path: polygon(
+    0 0.5rem,
+    0.5rem 0,
+    100% 0,
+    100% calc(100% - 1rem),
+    calc(100% - 1.5rem) 100%,
+    0 100%
+  );
+}
+
+.leaf-bullet() {
+  ul {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    font-size: 0.8rem;
+
+    li {
+      padding: 0 0 0.25rem 1.5rem;
+      position: relative;
+
+      p {
+        margin: 0 !important;
+      }
+
+      &::before {
+        content: '';
+        background: url(../assets/leaf-bullet.webp) center center no-repeat;
+        background-size: contain;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+        position: absolute;
+        top: -1px;
+        left: 0.25rem;
+      }
+    }
+  }
+}
+
+.blockquotes() {
+  --blockquote-border: @light-bg;
+
+  blockquote {
+    background: none;
+    border: 3px solid var(--blockquote-border);
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    margin: 0 0 0.5rem;
+    font-style: normal;
+
+    &.padded {
+      margin: 2rem;
+    }
+
+    h2,
+    h3 {
+      color: var(--blockquote-border);
+    }
+
+    i,
+    em {
+      font-style: italic;
+    }
+
+    &.red {
+      --blockquote-border: @red;
+    }
+    &.yellow {
+      --blockquote-border: @yellow;
+    }
+    &.green {
+      --blockquote-border: @green;
+    }
+    &.sky {
+      --blockquote-border: @sky;
+    }
+    &.blue {
+      --blockquote-border: @blue;
+    }
+    &.purple {
+      --blockquote-border: @purple;
+    }
+    &.fiction,
+    &.black {
+      border: none;
+      margin: 0.8rem 0;
+      padding: 0.8rem 0.8rem 0;
+    }
+
+    &.fiction {
+      p {
+        .title-font();
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        text-transform: initial;
+      }
+    }
+
+    &.black {
+      border: 1px solid @black;
+      background: @black;
+
+      p,
+      h1,
+      h2,
+      h3 {
+        color: @white;
+      }
+    }
+  }
+}
+
+@slash: linear-gradient(to top left, @mark-line);
+
+@backslash: linear-gradient(to top right, @mark-line);
+
+@dot: 1rem;
+@editor-height: 8rem;
+
+@mark-line: transparent 0%, transparent calc(50% - 2px), @black 50%,
+  transparent calc(50% + 2px), transparent 100%;

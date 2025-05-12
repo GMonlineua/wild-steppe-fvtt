@@ -1,0 +1,13 @@
+<div class="track {{track.visibility}}" data-track-id="{{track.id}}">
+  <a class="label" {{#if (ne track.visibility 'open')}}data-tooltip="{{localize (concat "wildsea.TRACKS." track.visibility)}}"{{/if}}>{{label}}</a>
+  <div class="slots">
+    {{#if (or @root.options.editable (eq track.visibility 'open'))}}
+    {{{renderTrack track}}}
+    {{/if}}
+  </div>
+  {{#if @root.options.editable}}
+  <a class="delete">
+    <i class="fas fa-trash"></i>
+  </a>
+  {{/if}}
+</div>

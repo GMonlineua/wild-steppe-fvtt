@@ -1,0 +1,32 @@
+<form class="wildsea">
+  <div class="flexrow spaced">
+    <div class="flexcol spaced">
+      <div class="flex flex0 flexrow spaced">
+        <div class="flex0 img"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+        <div>
+          <input id="name" class="corners" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "wildsea.name"}}" />
+        </div>
+      </div>
+      {{> "systems/wild-steppe/templates/sheets/player/background.hbs"}}
+      {{> "systems/wild-steppe/templates/sheets/player/drives.hbs"}}
+      {{> "systems/wild-steppe/templates/sheets/player/relationships.hbs"}}
+      {{> "systems/wild-steppe/templates/sheets/player/counters.hbs"}}
+    </div>
+    <div class="flexcol spaced">
+      {{> "systems/wild-steppe/templates/sheets/player/skills.hbs"}}
+      {{> "systems/wild-steppe/templates/sheets/player/knowledges.hbs"}}
+      {{> "systems/wild-steppe/templates/sheets/player/resources.hbs"}}
+    </div>
+    <div class="flexcol spaced">
+      {{> "systems/wild-steppe/templates/shared/aspects.hbs"
+        aspects=aspects
+        title=(localize "wildsea.aspects")
+        type="aspect"}}
+      {{> "systems/wild-steppe/templates/shared/aspects.hbs"
+        aspects=temporaryTracks
+        title=(localize "wildsea.temporaryTracks")
+        type="temporaryTrack"}}
+    </div>
+
+  </div>
+</form>

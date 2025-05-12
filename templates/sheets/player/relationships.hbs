@@ -1,0 +1,17 @@
+<div id="relationships" class="flex0">
+  <h2 class="corners dark">
+    {{localize "wildsea.relationships"}}
+    <a class="addItem" data-item-type="relationship">
+      <i class="fas fa-plus"></i>
+    </a>
+  </h2>
+    {{#if (any system.relationships)}}
+      <div class="slim-list">
+        {{#each system.relationships as |relationship|}}
+          {{> "systems/wild-steppe/templates/shared/slim_item.hbs" relationship type="relationships"}}
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="center corners light-transparent padded">{{localize "wildsea.none"}}</p>
+    {{/if}}
+</div>

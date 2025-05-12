@@ -1,0 +1,8 @@
+<div class="flexrow list-track">
+  <label>
+    <a class="roll" data-type="{{type}}" data-value="{{id}}" {{#if @root.showAttributeTooltip}} data-tooltip="{{localize (concat "wildsea.TOOLTIPS." id)}}" {{/if}}>{{name}}</a>
+  </label>
+  <div class="flex0">
+    {{> "systems/wild-steppe/templates/shared/track.hbs" max=max value=value type=type}}
+  </div>
+</div>

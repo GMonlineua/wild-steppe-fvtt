@@ -1,0 +1,4 @@
+<form class="wildsea">
+  {{> "systems/wild-steppe/templates/shared/select_field.hbs" field="rating" label="wildsea.rating" value=rating includeEmpty=true selectOptions=config.shipRatings}}
+  {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="value" label="wildsea.modifier" value=value placeholder="0"}}
+</form>

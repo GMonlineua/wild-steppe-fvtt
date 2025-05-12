@@ -1,0 +1,17 @@
+<div id="aspects" class="flex0">
+  <h2 class="corners dark">
+    {{title}}
+    <a class="addItem" data-item-type="{{type}}">
+      <i class="fas fa-plus"></i>
+    </a>
+  </h2>
+  {{#if (any aspects)}}
+    <div class="flexcol item-list spaced">
+      {{#each aspects as |aspect|}}
+        {{> "systems/wild-steppe/templates/shared/aspect.hbs" aspect id=aspect.id type=type}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="center corners light-transparent padded">{{localize "wildsea.none"}}</p>
+  {{/if}}
+</div>

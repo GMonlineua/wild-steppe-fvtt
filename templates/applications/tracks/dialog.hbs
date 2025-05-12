@@ -1,0 +1,27 @@
+<form class="wildsea flexcol spaced">
+  <div class="form-group">
+    <label>{{localize "wildsea.TRACKS.label"}}</label>
+    <div class="form-fields">
+      <input type="text" id="label" value="{{label}}" placeholder="{{localize "wildsea.TRACKS.label"}}" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>
+      {{localize "wildsea.TRACKS.trackGroups"}}
+    </label>
+    <div class="form-fields">
+      <input type="text" id="groups" value="{{groups}}" placeholder="{{localize "wildsea.TRACKS.trackGroups"}}" />
+      <i class="fas fa-question-circle flex0" data-tooltip="{{localize "wildsea.TRACKS.trackGroupsHelpText"}}"></i>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "wildsea.TRACKS.visibility"}}</label>
+    <div class="form-fields">
+      <select name="visibility" id="visibility">
+        {{selectOptions @root.config.trackVisibilityOptions selected=visibility localize=true}}
+      </select>
+    </div>
+  </div>
+</form>

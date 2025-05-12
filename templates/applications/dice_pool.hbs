@@ -1,0 +1,38 @@
+<form class="wildsea flexcol spaced">
+
+  <div class="form-group">
+    <label>{{localize "wildsea.skill"}}</label>
+    <div class="form-fields">
+      <select id="skill" name="skill" class="corners">
+        <option value="">{{localize "wildsea.none"}}</option>
+        {{{selectOptGroup skillOptions selected=skill label=(localize "wildsea.skill")}}}
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label>{{localize "wildsea.advantage"}}</label>
+    <div class="form-fields">
+      <select id="advantage" name="advantage" class="corners">
+      {{selectOptions advantageOptions selected=advantage}}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "wildsea.cut"}}</label>
+    <div class="form-fields">
+      <input id="cut" name="cut" type="number" min="0" placeholder="0" value="{{cut}}" />
+    </div>
+  </div>
+
+  <div class="flexrow spaced">
+    <div class="center">
+      <a class="block corners mid padded submit">Submit</a>
+    </div>
+    
+    <div class="center">
+      <a class="block cancel corners light padded">Cancel</a>
+    </div>
+  </div>
+</form>

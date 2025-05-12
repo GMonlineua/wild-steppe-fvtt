@@ -1,0 +1,17 @@
+<div id="drives" class="flex0">
+  <h2 class="corners dark">
+    {{localize "wildsea.drives"}}
+    <a class="addItem" data-item-type="drive">
+      <i class="fas fa-plus"></i>
+    </a>
+  </h2>
+    {{#if (any system.drives)}}
+      <div class="slim-list">
+        {{#each system.drives as |drive|}}
+          {{> "systems/wild-steppe/templates/shared/slim_item.hbs" drive type="drives"}}
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="center corners light-transparent padded">{{localize "wildsea.none"}}</p>
+    {{/if}}
+</div>
