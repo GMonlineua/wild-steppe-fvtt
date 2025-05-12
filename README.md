@@ -12,7 +12,7 @@
 
 1. Усередині екрану "Configuration and Setup" лаучера натисніть "Systems".
 2. Натисніть "Install System".
-3. В полі "Manifest URL" вставте наступне посилання: `https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/master/system.json`
+3. В полі "Manifest URL" вставте наступне посилання: `https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/main/system.json`
 4. Натисніть 'Install' і дочекайтеся завершення встановлення.
 
 Тепер ви можете створити світ з цією системою і використовувати аркуші персонажів та компендіуми для неї у Foundry VTT!
