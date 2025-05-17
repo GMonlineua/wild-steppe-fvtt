@@ -30,6 +30,10 @@ export default class WildseaShipSheet extends WildseaActorSheet {
       a.sort < b.sort ? -1 : 1,
     )
 
+    context.factions = this.actor.itemTypes.faction.sort((a, b) =>
+      a.sort < b.sort ? -1 : 1,
+    )
+
     context.temporaryTracks = this.actor.itemTypes.temporaryTrack.sort((a, b) =>
       a.sort < b.sort ? -1 : 1,
     )
@@ -115,6 +119,9 @@ export default class WildseaShipSheet extends WildseaActorSheet {
       case 'cargo':
         this.addSlimItem(data.itemType)
         break
+      case 'faction':
+        this.addFaction()
+        break
       case 'aspect':
         this.addAspect()
         break
@@ -127,6 +134,21 @@ export default class WildseaShipSheet extends WildseaActorSheet {
         )
         break
     }
+  }
+
+  async addFaction() {
+    const defaultData = {}
+
+    const itemData = {
+      name: game.i18n.localize('wildsea.newAspectName'),
+      type: 'faction',
+      system: {
+        details: game.i18n.localize('wildsea.newAspectDetails'),
+        ...defaultData,
+      },
+    }
+
+    this.addEmbeddedDocument(itemData)
   }
 
   async addAspect() {
@@ -169,24 +191,36 @@ export default class WildseaShipSheet extends WildseaActorSheet {
       ratings[rating] = shipRating.value
     }
 
+    const advantageOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `+${n}d`]),
+    )
+
+    const cutOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `${n}d`]),
+    )
+
     const data = await renderDialog(
       game.i18n.localize('wildsea.ratingRoll'),
       this.handleRatingRoll,
-      { rating: rolling, ratings },
+      { rating: rolling, ratings, advantageOptions, cutOptions },
       '/systems/wild-steppe/templates/dialogs/rating_roll.hbs',
     )
 
     if (data.cancelled) return
 
-    const { rating, cut } = data
+    console.log(data)
+    const { rating, advantage, cut } = data
 
     const ratingDice = this.actor.system.ratings[rating]
 
     const dicePool = {
       rating: rolling,
       ratingDice: ratingDice.value,
+      advantage,
       cut,
     }
+
+    console.log(dicePool)
 
     const [roll, outcome] = await Dice.rollPool(dicePool)
 

@@ -22,7 +22,9 @@
   <div class="form-group">
     <label>{{localize "wildsea.cut"}}</label>
     <div class="form-fields">
-      <input id="cut" name="cut" type="number" min="0" placeholder="0" value="{{cut}}" />
+      <select id="cut" name="cut" class="corners">
+      {{selectOptions cutOptions selected=cut}}
+      </select>
     </div>
   </div>
 

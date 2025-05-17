@@ -59,7 +59,11 @@ export default class WildseaDicePool extends FormApplication {
     context.skillOptions = skillOptions
 
     context.advantageOptions = Object.fromEntries(
-      [0, 1, 2].map((n) => [n, `+${n}d`]),
+      [0, 1, 2, 3].map((n) => [n, `+${n}d`]),
+    )
+
+    context.cutOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `${n}d`]),
     )
 
     return context

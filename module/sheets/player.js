@@ -11,7 +11,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      width: 1000,
+      width: 1100,
       height: 750,
     })
   }

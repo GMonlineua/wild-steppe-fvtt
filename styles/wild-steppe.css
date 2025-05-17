@@ -703,6 +703,9 @@ form label {
 .wildsea #resources .item h3 {
   margin-bottom: 0;
 }
+.ship-container {
+  align-items: flex-start;
+}
 .chat-message {
   background: #f9f9f9;
 }

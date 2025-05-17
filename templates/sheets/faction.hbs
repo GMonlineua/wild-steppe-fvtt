@@ -1,0 +1,20 @@
+<form class="wildsea">
+  <div class="flexcol spaced">
+    <div id="header" class="flexrow spaced">
+      <div class="flexrow spaced">
+        <div class="flex0 img"><img src="{{item.img}}" data-edit="img" title="{{item.name}}" /></div>
+        <div class="flexcol spaced">
+          <input id="name" class="corners" type="text" name="name" value="{{item.name}}" placeholder="{{localize "wildsea.name"}}" />
+          <div class="flexrow spaced">
+            {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.track.max" value=system.track.max label="wildsea.track" min=0 max=8}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="body">
+      <h3 class="corners mid">{{localize "wildsea.details"}}</h3>
+      {{> "systems/wild-steppe/templates/shared/description.hbs" content=system.enrichedDetails target="system.details"}}
+    </div>
+  </div>
+</form>

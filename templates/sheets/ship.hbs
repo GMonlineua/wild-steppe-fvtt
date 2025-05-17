@@ -1,5 +1,5 @@
 <form class="wildsea">
-  <div class="flexrow spaced">
+  <div class="flexrow spaced ship-container">
     <div class="flexcol spaced">
       <div class="flex flex0 flexrow spaced">
         <div class="flex0 img"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
@@ -7,9 +7,14 @@
           <input id="name" class="corners" type="text" name="name" value="{{actor.name}}" placeholder="{{localize "wildsea.name"}}" />
         </div>
       </div>
+      {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.type" value=system.type label="wildsea.shipType"}}
+      {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.drive" value=system.drive label="wildsea.drive"}}
       
       {{> "systems/wild-steppe/templates/sheets/ship/ratings.hbs"}}
-      {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.drive" value=system.drive label="wildsea.drive"}}
+      {{> "systems/wild-steppe/templates/shared/aspects.hbs"
+        aspects=factions
+        title=(localize "wildsea.factions")
+        type="faction"}}
       {{> "systems/wild-steppe/templates/sheets/ship/cargo.hbs"}}
 
     </div>

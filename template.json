@@ -71,12 +71,14 @@
           "burn": 0,
           "max": 10
         }
-      }
+      },
+      "type": ""
     }
   },
   "Item": {
     "types": [
       "aspect",
+      "faction",
       "resource",
       "temporaryTrack"
     ],
@@ -107,6 +109,15 @@
         "max": 8
       },
       "type": ""
+    },
+    "faction": {
+      "templates": [
+        "hasDetails",
+        "hasTrack"
+      ],
+      "track": {
+        "max": 5
+      }
     },
     "resource": {
       "templates": [

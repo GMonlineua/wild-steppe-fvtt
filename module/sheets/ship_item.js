@@ -23,7 +23,6 @@ export default class WildseaShipItemSheet extends WildseaItemSheet {
 
   async getData() {
     const context = await super.getData()
-    context.hasTrack = ['undercrew'].includes(this.item.type)
     return context
   }
 

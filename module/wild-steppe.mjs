@@ -6,7 +6,7 @@ import {
 import WildseaActor from './actor.js'
 import { addDiceColor } from './dice.js'
 import WildseaAspectSheet from './sheets/aspect.js'
-import WildseaAttributeSheet from './sheets/attribute.js'
+import WildseaFactionSheet from './sheets/faction.js'
 import WildseaDicePool from './applications/dice_pool.js'
 import WildseaItem from './item.js'
 import WildseaJournalSheet from './sheets/journal.js'
@@ -48,12 +48,12 @@ Hooks.once('init', () => {
   Items.registerSheet('wildsea', WildseaAspectSheet, {
     types: ['aspect', 'temporaryTrack'],
   })
+  Items.registerSheet('wildsea', WildseaFactionSheet, {
+    types: ['faction', 'temporaryTrack'],
+  })
   Items.registerSheet('wildsea', WildseaResourceSheet, { types: ['resource'] })
   Items.registerSheet('wildsea', WildseaShipItemSheet, {
     types: ['design', 'fitting', 'undercrew'],
-  })
-  Items.registerSheet('wildsea', WildseaAttributeSheet, {
-    types: ['attribute'],
   })
 
   Journal.unregisterSheet('core', JournalSheet)
