@@ -52,7 +52,7 @@
   "socket": true,
   "url": "https://github.com/GMonlineua/wild-steppe-fvtt",
   "manifest": "https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/main/system.json",
-  "download": "https://github.com/GMonlineua/wild-steppe-fvtt/releases/download/v0.1/foundry.zip",
+  "download": "https://github.com/GMonlineua/wild-steppe-fvtt/releases/download/v0.2/foundry.zip",
   "license": "https://github.com/GMonlineua/wild-steppe-fvtt/blob/main/LICENSE.md",
   "bugs": "https://github.com/MagpieRook/wild-steppe/issues/new"
 }
