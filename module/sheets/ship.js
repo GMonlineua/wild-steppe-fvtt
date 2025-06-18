@@ -187,8 +187,8 @@ export default class WildseaShipSheet extends WildseaActorSheet {
 
     const ratings = {}
     for (const rating of WILDSEA.shipRatings) {
-      const shipRating = this.actor.system.ratings[rating]
-      ratings[rating] = shipRating.value
+      const shipRating = this.actor.system.ratings[rating];
+      ratings[rating] = shipRating.value - shipRating.burn;
     }
 
     const advantageOptions = Object.fromEntries(
@@ -208,19 +208,16 @@ export default class WildseaShipSheet extends WildseaActorSheet {
 
     if (data.cancelled) return
 
-    console.log(data)
-    const { rating, advantage, cut } = data
+    const { rating, advantageDice, cut } = data
 
     const ratingDice = this.actor.system.ratings[rating]
 
     const dicePool = {
       rating: rolling,
-      ratingDice: ratingDice.value,
-      advantage,
+      ratingDice: ratingDice.value - ratingDice.burn,
+      advantageDice,
       cut,
     }
-
-    console.log(dicePool)
 
     const [roll, outcome] = await Dice.rollPool(dicePool)
 
@@ -243,6 +240,7 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     return {
       rating: form.rating.value,
       cut: parseInt(form.cut.value || 0),
+      advantageDice: parseInt(form.advantage.value || 0),
     }
   }
 

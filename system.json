@@ -3,7 +3,7 @@
   "name": "wild-steppe",
   "title": "Дике Поле",
   "description": "Імплементація системи для Дикого Поля на основі Wild Sea",
-  "version": "0.2",
+  "version": "0.3",
   "compatibility": {
     "minimum": "12",
     "verified": "12.334",
@@ -52,7 +52,6 @@
   "socket": true,
   "url": "https://github.com/GMonlineua/wild-steppe-fvtt",
   "manifest": "https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/main/system.json",
-  "download": "https://github.com/GMonlineua/wild-steppe-fvtt/releases/download/v0.2/foundry.zip",
-  "license": "https://github.com/GMonlineua/wild-steppe-fvtt/blob/main/LICENSE.md",
-  "bugs": "https://github.com/MagpieRook/wild-steppe/issues/new"
+  "download": "https://github.com/GMonlineua/wild-steppe-fvtt/releases/download/v0.3/foundry.zip",
+  "license": "https://github.com/GMonlineua/wild-steppe-fvtt/blob/main/LICENSE.md"
 }

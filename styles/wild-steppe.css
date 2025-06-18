@@ -77,9 +77,6 @@ a.inline-roll.unstyled {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
 }
-#logo {
-  content: url(../assets/logo.webp);
-}
 #pause img {
   content: url(../assets/spinner.webp);
   opacity: 0.25;

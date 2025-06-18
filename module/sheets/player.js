@@ -248,27 +248,38 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     const counters = {}
     for (const counter of WILDSEA.counters) {
       const countersData = this.actor.system.counters[counter]
-      counters[counter] = countersData.value
+      counters[counter] = countersData.level
     }
+
+    const advantageOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `+${n}d`]),
+    )
+
+    const cutOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `${n}d`]),
+    )
 
     const data = await renderDialog(
       game.i18n.localize('wildsea.counterRoll'),
       this.handleCounterRoll,
-      { counter: rolling, counters },
+      { counter: rolling, counters, advantageOptions, cutOptions },
       '/systems/wild-steppe/templates/dialogs/counter_roll.hbs',
     )
 
     if (data.cancelled) return
 
-    const { counter, cut } = data
+    const { counter, advantageDice, cut } = data
 
-    const ratingDice = this.actor.system.counters[counter]
+    const counterDice = this.actor.system.counters[counter];
 
     const dicePool = {
       counter: rolling,
-      ratingDice: ratingDice.value,
+      ratingDice: counterDice.level,
+      advantageDice,
       cut,
     }
+
+    console.log(dicePool)
 
     const [roll, outcome] = await Dice.rollPool(dicePool)
 
@@ -291,6 +302,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     return {
       counter: form.counter.value,
       cut: parseInt(form.cut.value || 0),
+      advantageDice: parseInt(form.advantage.value || 0),
     }
   }
 }
