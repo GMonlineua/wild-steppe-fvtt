@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'Teko';
-  src: url(fonts/Teko/Teko-VariableFont_wght.ttf);
+  src: url(./fonts/Teko/Teko-VariableFont_wght.ttf);
 }
 @font-face {
   font-family: 'Merriweather';
-  src: url(fonts/Merriweather/Merriweather-Regular.ttf);
+  src: url(./fonts/Merriweather/Merriweather-Regular.ttf);
 }
 @font-face {
   font-family: 'Merriweather';
-  src: url(fonts/Merriweather/Merriweather-Italic.ttf);
+  src: url(./fonts/Merriweather/Merriweather-Italic.ttf);
   font-style: italic;
 }
 @font-face {
   font-family: 'Merriweather';
-  src: url(fonts/Merriweather/Merriweather-Bold.ttf);
+  src: url(./fonts/Merriweather/Merriweather-Bold.ttf);
   font-weight: 600;
 }
 @font-face {
   font-family: 'Merriweather';
-  src: url(fonts/Merriweather/Merriweather-BoldItalic.ttf);
+  src: url(./fonts/Merriweather/Merriweather-BoldItalic.ttf);
   font-weight: 600;
   font-style: italic;
 }
@@ -54,7 +54,6 @@ body ul {
 body ul li {
   padding: 0 0 0.25rem 1.5rem;
   position: relative;
-  max-width: 500px;
 }
 body ul li p {
   margin: 0 !important;

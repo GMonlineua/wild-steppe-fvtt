@@ -1,14 +1,14 @@
-import { WILDSEA } from '../config.js'
+import { WILDSTEPPE } from '../config.js'
 import { clamp, clickModifiers } from '../helpers.js'
 import { renderDialog } from '../dialog.js'
 import SortableJS from '../lib/sortable.complete.esm.js'
 
-export default class WildseaActorSheet extends ActorSheet {
+export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorSheet {
   async getData() {
     const context = super.getData()
-    context.config = WILDSEA
-    context.showBurnTooltip = game.settings.get('wildsea', 'showBurnTooltip')
-    context.showAttributeTooltip = game.settings.get('wildsea', 'showAttributeTooltip')
+    context.config = WILDSTEPPE
+    context.showBurnTooltip = game.settings.get('wildsteppe', 'showBurnTooltip')
+    context.showAttributeTooltip = game.settings.get('wildsteppe', 'showAttributeTooltip')
     return context
   }
 
@@ -36,7 +36,7 @@ export default class WildseaActorSheet extends ActorSheet {
 
   itemContextMenu = [
     {
-      name: game.i18n.localize('wildsea.toChat'),
+      name: game.i18n.localize('wildsteppe.toChat'),
       icon: '<i class="fas fa-comment"></i>',
       callback: (element) => {
         const itemId = element.closest('.item').data('item-id')
@@ -44,7 +44,7 @@ export default class WildseaActorSheet extends ActorSheet {
       },
     },
     {
-      name: game.i18n.localize('wildsea.edit'),
+      name: game.i18n.localize('wildsteppe.edit'),
       icon: '<i class="fas fa-edit"></i>',
       callback: (element) => {
         const itemId = element.closest('.item').data('item-id')
@@ -52,7 +52,7 @@ export default class WildseaActorSheet extends ActorSheet {
       },
     },
     {
-      name: game.i18n.localize('wildsea.delete'),
+      name: game.i18n.localize('wildsteppe.delete'),
       icon: '<i class="fas fa-trash"></i>',
       callback: (element) => {
         const itemId = element.closest('.item').data('item-id')
@@ -63,7 +63,7 @@ export default class WildseaActorSheet extends ActorSheet {
 
   slimContextMenu = [
     {
-      name: game.i18n.localize('wildsea.toChat'),
+      name: game.i18n.localize('wildsteppe.toChat'),
       icon: '<i class="fas fa-comment"></i>',
       callback: (element) => {
         const itemId = element.data('item-id')
@@ -72,7 +72,7 @@ export default class WildseaActorSheet extends ActorSheet {
       },
     },
     {
-      name: game.i18n.localize('wildsea.edit'),
+      name: game.i18n.localize('wildsteppe.edit'),
       icon: '<i class="fas fa-edit"></i>',
       callback: (element) => {
         const itemId = element.data('item-id')
@@ -81,7 +81,7 @@ export default class WildseaActorSheet extends ActorSheet {
       },
     },
     {
-      name: game.i18n.localize('wildsea.delete'),
+      name: game.i18n.localize('wildsteppe.delete'),
       icon: '<i class="fas fa-trash"></i>',
       callback: (element) => {
         const itemId = element.data('item-id')
@@ -98,8 +98,8 @@ export default class WildseaActorSheet extends ActorSheet {
 
   async addSlimItem(itemType, itemSubtype = null) {
     const data = await renderDialog(
-      game.i18n.format('wildsea.newSlim', {
-        type: game.i18n.localize(`wildsea.${itemType}`),
+      game.i18n.format('wildsteppe.newSlim', {
+        type: game.i18n.localize(`wildsteppe.${itemType}`),
       }),
       this.processSlimDialog,
     )
@@ -139,8 +139,8 @@ export default class WildseaActorSheet extends ActorSheet {
 
     if (item) {
       const data = await renderDialog(
-        game.i18n.format('wildsea.editSlim', {
-          type: game.i18n.localize(`wildsea.${itemType}`),
+        game.i18n.format('wildsteppe.editSlim', {
+          type: game.i18n.localize(`wildsteppe.${itemType}`),
         }),
         this.processSlimDialog,
         item,
@@ -203,7 +203,7 @@ export default class WildseaActorSheet extends ActorSheet {
   async sendSlimToChat(itemId, itemType) {
     const item = this.actor.system[itemType].filter((i) => i.id === itemId)[0]
     if (item) {
-      item.title = game.i18n.localize(`wildsea.${itemType}`)
+      item.title = game.i18n.localize(`wildsteppe.${itemType}`)
 
       const template = 'systems/wild-steppe/templates/chat/slim.hbs'
       const html = await renderTemplate(template, item)

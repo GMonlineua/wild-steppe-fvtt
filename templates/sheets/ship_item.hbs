@@ -1,20 +1,20 @@
-<form class="wildsea">
+<form class="wildsteppe">
   <div class="flexcol spaced">
     <div id="header" class="flexrow spaced">
       <div class="flexrow spaced">
         <div class="flex0 img"><img src="{{item.img}}" data-edit="img" title="{{item.name}}" /></div>
         <div class="flexcol spaced">
-          <input id="name" class="corners" type="text" name="name" value="{{item.name}}" placeholder="{{localize "wildsea.name"}}" />
+          <input id="name" class="corners" type="text" name="name" value="{{item.name}}" placeholder="{{localize "wildsteppe.name"}}" />
           <div class="flexrow spaced">
             {{#if (eq item.type 'design')}}
-              {{> "systems/wild-steppe/templates/shared/select_field.hbs" field="system.type" value=system.type label="wildsea.type" selectOptions=config.designTypes}}
+              {{> "systems/wild-steppe/templates/shared/select_field.hbs" field="system.type" value=system.type label="wildsteppe.type" selectOptions=config.designTypes}}
             {{else}}
-              {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.type" value=system.type label="wildsea.type"}}
+              {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.type" value=system.type label="wildsteppe.type"}}
             {{/if}}
             {{#if hasTrack}}
-              {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.track.max" value=system.track.max label="wildsea.track" min=0 max=8}}
+              {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.track.max" value=system.track.max label="wildsteppe.track" min=0 max=8}}
             {{/if}}
-            {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.stakes" value=system.stakes label="wildsea.stakes" min=0}}
+            {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.stakes" value=system.stakes label="wildsteppe.stakes" min=0}}
           </div>
         </div>
       </div>
@@ -23,8 +23,8 @@
     <div id="body" class="flexcol spaced">
       <section class="navigation">
         <nav class="sheet-tabs tabs flexrow spaced" data-group="primary">
-          <a data-tab="main">{{localize "wildsea.description"}}</a>
-          <a data-tab="ratingMods">{{localize "wildsea.ratingMods"}}</a>
+          <a data-tab="main">{{localize "wildsteppe.description"}}</a>
+          <a data-tab="ratingMods">{{localize "wildsteppe.ratingMods"}}</a>
         </nav>
       </section>
 

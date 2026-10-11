@@ -1,8 +1,11 @@
-export default class WildseaItem extends Item {
+import { WILDSTEPPE } from './config.js';
+
+export default class WildsteppeItem extends Item {
   static getDefaultArtwork(data) {
+    const tokens = CONFIG.wildsteppe?.defaultTokens ?? WILDSTEPPE.defaultTokens;
     return {
-      img: CONFIG.wildsea.defaultTokens[data.type],
-      texture: { src: CONFIG.wildsea.defaultTokens[data.type] },
-    }
+      img: tokens[data.type],
+      texture: { src: tokens[data.type] }
+    };
   }
 }

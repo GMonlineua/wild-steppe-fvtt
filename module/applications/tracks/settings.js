@@ -1,14 +1,14 @@
-export const registerWildseaTrackSettings = () => {
-  game.settings.register('wildsea', 'activeTracks', {
+export const registerWildsteppeTrackSettings = () => {
+  game.settings.register('wildsteppe', 'activeTracks', {
     name: 'Active Tracks',
     scope: 'world',
     type: Object,
     default: {},
     config: false,
-    onChange: () => game.wildsea.trackDatabase.refresh(),
+    onChange: () => game.wildsteppe.trackDatabase.refresh(),
   })
 
-  game.settings.register('wildsea', 'trackPosition', {
+  game.settings.register('wildsteppe', 'trackPosition', {
     config: true,
     scope: 'world',
     name: 'SETTINGS.trackPosition.label',
@@ -18,7 +18,7 @@ export const registerWildseaTrackSettings = () => {
       bottom: 'SETTINGS.trackPosition.bottom',
       top: 'SETTINGS.trackPosition.top',
     },
-    default: 'bottom',
+    default: 'top',
     requiresReload: true,
   })
 }

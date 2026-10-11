@@ -1,4 +1,4 @@
-import { WILDSEA } from '../config.js'
+import { WILDSTEPPE } from '../config.js'
 import * as Dice from '../dice.js'
 
 const blankPool = {
@@ -7,7 +7,7 @@ const blankPool = {
   cut: 0,
 }
 
-export default class WildseaDicePool extends FormApplication {
+export default class WildsteppeDicePool extends FormApplication {
   constructor() {
     super()
     this.dicePool = { ...blankPool }
@@ -17,7 +17,7 @@ export default class WildseaDicePool extends FormApplication {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: 'user-dice-pool',
       template: 'systems/wild-steppe/templates/applications/dice_pool.hbs',
-      title: game.i18n.localize('wildsea.dicePoolTitle'),
+      title: game.i18n.localize('wildsteppe.dicePoolTitle'),
       width: 400,
       height: 'auto',
       resizable: false,
@@ -29,14 +29,14 @@ export default class WildseaDicePool extends FormApplication {
 
   async getData() {
     const context = { ...this.dicePool }
-    context.config = WILDSEA
+    context.config = WILDSTEPPE
 
     this.actor = game.user.character?.uuid
       ? await fromUuid(game.user.character?.uuid)
       : null
 
     if (!this.actor) {
-      const error = game.i18n.localize('wildsea.userNotFound')
+      const error = game.i18n.localize('wildsteppe.userNotFound')
       ui.notifications.error(error)
       // throw new Error(error)
       game.user.sheet.render(true)
@@ -44,15 +44,15 @@ export default class WildseaDicePool extends FormApplication {
     }
 
     if (!this.actor.isOwner) {
-      const error = game.i18n.localize('wildsea.userNotPermitted')
+      const error = game.i18n.localize('wildsteppe.userNotPermitted')
       ui.notifications.error(error)
       throw new Error(error)
     }
 
     const skillOptions = {}
-    for (const skill of WILDSEA.skills) {
-      skillOptions[`skills.${skill}`] = game.i18n.format('wildsea.diceRating', {
-        label: game.i18n.localize(`wildsea.${skill}`),
+    for (const skill of WILDSTEPPE.skills) {
+      skillOptions[`skills.${skill}`] = game.i18n.format('wildsteppe.diceRating', {
+        label: game.i18n.localize(`wildsteppe.${skill}`),
         value: this.actor.system.skills[skill] || 0,
       })
     }
@@ -125,7 +125,6 @@ export default class WildseaDicePool extends FormApplication {
       roll,
       rolls: [roll],
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     }
     ChatMessage.create(chatData)
   }

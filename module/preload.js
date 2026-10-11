@@ -28,7 +28,7 @@ export const loadHandlebarsPartials = () => {
     'systems/wild-steppe/templates/sheets/ship/ratings.hbs',
   ]
 
-  return loadTemplates(partials)
+  return foundry.applications.handlebars.loadTemplates(partials)
 }
 
 export const loadHandlebarsHelpers = () => {

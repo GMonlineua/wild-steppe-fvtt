@@ -1,18 +1,18 @@
-<form class="wildsea flexcol spaced">
+<form class="wildsteppe flexcol spaced">
   <div class="form-group">
-    <label>{{localize "wildsea.rating"}}</label>
+    <label>{{localize "wildsteppe.rating"}}</label>
     <div class="form-fields">
       <select id="rating" name="rating" class="corners">
-        <option value="">{{localize "wildsea.none"}}</option>
+        <option value="">{{localize "wildsteppe.none"}}</option>
         {{#each ratings as |value label|}}
-          <option value="{{label}}" {{#if (eq ../rating label)}}selected{{/if}}>{{localize (concat "wildsea." label)}} (+{{value}}d)</option>
+          <option value="{{label}}" {{#if (eq ../rating label)}}selected{{/if}}>{{localize (concat "wildsteppe." label)}} (+{{value}}d)</option>
         {{/each}}
       </select>
     </div>
   </div>
 
   <div class="form-group">
-    <label>{{localize "wildsea.advantage"}}</label>
+    <label>{{localize "wildsteppe.advantage"}}</label>
     <div class="form-fields">
       <select id="advantage" name="advantage" class="corners">
       {{selectOptions advantageOptions selected=advantage}}
@@ -21,7 +21,7 @@
   </div>
 
   <div class="form-group">
-    <label>{{localize "wildsea.cut"}}</label>
+    <label>{{localize "wildsteppe.cut"}}</label>
     <div class="form-fields">
       <select id="cut" name="cut" class="corners">
       {{selectOptions cutOptions selected=cut}}

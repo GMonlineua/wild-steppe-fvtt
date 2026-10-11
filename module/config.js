@@ -1,20 +1,20 @@
-export const WILDSEA = {}
-WILDSEA.root_path = 'systems/wild-steppe'
-WILDSEA.defaultTokens = {
-  player: `${WILDSEA.root_path}/assets/tokens/person.png`,
-  ship: `${WILDSEA.root_path}/assets/tokens/iron-hulled-warship.png`,
+export const WILDSTEPPE = {}
+WILDSTEPPE.root_path = 'systems/wild-steppe'
+WILDSTEPPE.defaultTokens = {
+  player: `${WILDSTEPPE.root_path}/assets/tokens/person.png`,
+  ship: `${WILDSTEPPE.root_path}/assets/tokens/iron-hulled-warship.png`,
 }
-WILDSEA.knowledgeMax = 3
-WILDSEA.knowledges = [
+WILDSTEPPE.knowledgeMax = 3
+WILDSTEPPE.knowledges = [
   'steppe',
   'ruin',
   'old'
 ]
-WILDSEA.resourceTypes = ['equipment', 'salvage', 'chart']
-WILDSEA.shipRatings = ['armour', 'speed', 'resources', 'team', 'danger']
-WILDSEA.counters = ['steppe', 'ruin']
-WILDSEA.skillMax = 3
-WILDSEA.skills = [
+WILDSTEPPE.resourceTypes = ['equipment', 'salvage', 'chart']
+WILDSTEPPE.shipRatings = ['armour', 'speed', 'resources', 'team', 'danger']
+WILDSTEPPE.counters = ['steppe', 'ruin']
+WILDSTEPPE.skillMax = 3
+WILDSTEPPE.skills = [
   'athletics',
   'artistry',
   'trick',
@@ -28,14 +28,14 @@ WILDSEA.skills = [
   'craft',
   'sense',
 ]
-WILDSEA.trackVisibilityOptions = {
-  open: 'wildsea.TRACKS.open',
-  hidden: 'wildsea.TRACKS.hidden',
-  secret: 'wildsea.TRACKS.secret',
+WILDSTEPPE.trackVisibilityOptions = {
+  open: 'wildsteppe.TRACKS.open',
+  hidden: 'wildsteppe.TRACKS.hidden',
+  secret: 'wildsteppe.TRACKS.secret',
 }
 
 export const registerSystemSettings = () => {
-  game.settings.register('wildsea', 'showBurnTooltip', {
+  game.settings.register('wildsteppe', 'showBurnTooltip', {
     config: true,
     scope: 'client',
     name: 'SETTINGS.showBurnTooltip.label',
@@ -44,7 +44,7 @@ export const registerSystemSettings = () => {
     default: true,
   })
 
-  game.settings.register('wildsea', 'showAttributeTooltip', {
+  game.settings.register('wildsteppe', 'showAttributeTooltip', {
     config: true,
     scope: 'client',
     name: 'SETTINGS.showAttributeTooltip.label',
@@ -53,7 +53,7 @@ export const registerSystemSettings = () => {
     default: true,
   })
 
-  game.settings.register('wildsea', 'showDepth', {
+  game.settings.register('wildsteppe', 'showDepth', {
     config: true,
     scope: 'world',
     name: 'SETTINGS.showDepth.label',
@@ -63,7 +63,7 @@ export const registerSystemSettings = () => {
     requiresReload: true,
   })
 
-  game.settings.register('wildsea', 'systemMigrationVersion', {
+  game.settings.register('wildsteppe', 'systemMigrationVersion', {
     config: false,
     scope: 'world',
     type: String,

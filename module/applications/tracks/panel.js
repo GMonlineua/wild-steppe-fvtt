@@ -1,8 +1,8 @@
 import { clickModifiers } from '../../helpers.js'
-import WildseaTrack from './track.js'
+import WildsteppeTrack from './track.js'
 import SortableJS from '../../lib/sortable.complete.esm.js'
 
-export class WildseaTrackPanel extends Application {
+export class WildsteppeTrackPanel extends Application {
   constructor(db, options) {
     super(options)
     this.db = db
@@ -11,7 +11,7 @@ export class WildseaTrackPanel extends Application {
   static get defaultOptions() {
     return {
       ...super.defaultOptions,
-      id: 'wildsea-tracks-panel',
+      id: 'wildsteppe-tracks-panel',
       popOut: false,
       template: 'systems/wild-steppe/templates/applications/tracks/panel.hbs',
     }
@@ -26,13 +26,13 @@ export class WildseaTrackPanel extends Application {
         editable: game.user.isGM,
       },
       tracks,
-      position: game.settings.get('wildsea', 'trackPosition'),
+      position: game.settings.get('wildsteppe', 'trackPosition'),
     }
   }
 
   async prepareTracks() {
-    const tracks = game.wildsea.trackDatabase.contents
-    return tracks.map((track) => new WildseaTrack(track))
+    const tracks = game.wildsteppe.trackDatabase.contents
+    return tracks.map((track) => new WildsteppeTrack(track))
   }
 
   activateListeners(html) {
@@ -54,7 +54,7 @@ export class WildseaTrackPanel extends Application {
         onEnd: (event) => {
           const id = event.item.dataset.trackId
           const newIndex = event.newDraggableIndex
-          game.wildsea.trackDatabase.moveTrack(id, newIndex)
+          game.wildsteppe.trackDatabase.moveTrack(id, newIndex)
         },
       })
     }
@@ -63,25 +63,25 @@ export class WildseaTrackPanel extends Application {
   async addTrack(event) {
     event.preventDefault()
 
-    const data = await game.wildsea.trackDatabase.showTrackDialog(
-      'wildsea.TRACKS.addTrack',
+    const data = await game.wildsteppe.trackDatabase.showTrackDialog(
+      'wildsteppe.TRACKS.addTrack',
     )
     if (data.cancelled) return
 
-    game.wildsea.trackDatabase.addTrack({ ...data })
+    game.wildsteppe.trackDatabase.addTrack({ ...data })
   }
 
   async editTrack(event) {
     event.preventDefault()
     const id = event.currentTarget.closest('.track').dataset.trackId
-    const track = game.wildsea.trackDatabase.get(id)
-    const data = await game.wildsea.trackDatabase.showTrackDialog(
-      'wildsea.TRACKS.editTrack',
+    const track = game.wildsteppe.trackDatabase.get(id)
+    const data = await game.wildsteppe.trackDatabase.showTrackDialog(
+      'wildsteppe.TRACKS.editTrack',
       track,
     )
     if (data.cancelled) return
 
-    game.wildsea.trackDatabase.updateTrack(id, data)
+    game.wildsteppe.trackDatabase.updateTrack(id, data)
   }
 
   handleDialogData(html) {
@@ -104,13 +104,13 @@ export class WildseaTrackPanel extends Application {
 
     switch (action) {
       case 'mark':
-        game.wildsea.trackDatabase.markTrack(id, clickModifiers(event))
+        game.wildsteppe.trackDatabase.markTrack(id, clickModifiers(event))
         break
       case 'unmark':
-        game.wildsea.trackDatabase.markTrack(id, clickModifiers(event), -1)
+        game.wildsteppe.trackDatabase.markTrack(id, clickModifiers(event), -1)
         break
       case 'delete':
-        game.wildsea.trackDatabase.deleteTrack(id)
+        game.wildsteppe.trackDatabase.deleteTrack(id)
         break
       default:
         break

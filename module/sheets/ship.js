@@ -1,12 +1,12 @@
-import { WILDSEA } from '../config.js'
+import { WILDSTEPPE } from '../config.js'
 import { renderDialog } from '../dialog.js'
 import { clamp, clickModifiers, enrich } from '../helpers.js'
-import WildseaActorSheet from './actor.js'
+import WildsteppeActorSheet from './actor.js'
 import * as Dice from '../dice.js'
 
-export default class WildseaShipSheet extends WildseaActorSheet {
+export default class WildsteppeShipSheet extends WildsteppeActorSheet {
   get template() {
-    return `${WILDSEA.root_path}/templates/sheets/ship.hbs`
+    return `${WILDSTEPPE.root_path}/templates/sheets/ship.hbs`
   }
 
   static get defaultOptions() {
@@ -140,10 +140,10 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newAspectName'),
+      name: game.i18n.localize('wildsteppe.newAspectName'),
       type: 'faction',
       system: {
-        details: game.i18n.localize('wildsea.newAspectDetails'),
+        details: game.i18n.localize('wildsteppe.newAspectDetails'),
         ...defaultData,
       },
     }
@@ -155,10 +155,10 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newAspectName'),
+      name: game.i18n.localize('wildsteppe.newAspectName'),
       type: 'aspect',
       system: {
-        details: game.i18n.localize('wildsea.newAspectDetails'),
+        details: game.i18n.localize('wildsteppe.newAspectDetails'),
         ...defaultData,
       },
     }
@@ -170,10 +170,10 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newTemporaryTrackName'),
+      name: game.i18n.localize('wildsteppe.newTemporaryTrackName'),
       type: 'temporaryTrack',
       system: {
-        details: game.i18n.localize('wildsea.newTemporaryTrackDetails'),
+        details: game.i18n.localize('wildsteppe.newTemporaryTrackDetails'),
         ...defaultData,
       },
     }
@@ -186,7 +186,7 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     const rolling = event.currentTarget.dataset.rating
 
     const ratings = {}
-    for (const rating of WILDSEA.shipRatings) {
+    for (const rating of WILDSTEPPE.shipRatings) {
       const shipRating = this.actor.system.ratings[rating];
       ratings[rating] = shipRating.value - shipRating.burn;
     }
@@ -200,7 +200,7 @@ export default class WildseaShipSheet extends WildseaActorSheet {
     )
 
     const data = await renderDialog(
-      game.i18n.localize('wildsea.ratingRoll'),
+      game.i18n.localize('wildsteppe.ratingRoll'),
       this.handleRatingRoll,
       { rating: rolling, ratings, advantageOptions, cutOptions },
       '/systems/wild-steppe/templates/dialogs/rating_roll.hbs',
@@ -230,7 +230,6 @@ export default class WildseaShipSheet extends WildseaActorSheet {
       ),
       roll,
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     }
     ChatMessage.create(chatData)
   }

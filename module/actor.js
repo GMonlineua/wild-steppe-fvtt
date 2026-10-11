@@ -1,8 +1,8 @@
-export default class WildseaActor extends Actor {
+export default class WildsteppeActor extends Actor {
   static getDefaultArtwork(data) {
     return {
-      img: CONFIG.wildsea.defaultTokens[data.type],
-      texture: { src: CONFIG.wildsea.defaultTokens[data.type] },
+      img: CONFIG.wildsteppe.defaultTokens[data.type],
+      texture: { src: CONFIG.wildsteppe.defaultTokens[data.type] },
     }
   }
 

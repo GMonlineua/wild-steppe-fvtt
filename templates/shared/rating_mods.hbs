@@ -3,7 +3,7 @@
     <table class="no-margin">
       <thead>
         <tr>
-          <th>{{localize "wildsea.rating"}}</th>
+          <th>{{localize "wildsteppe.rating"}}</th>
           <th class="right">
             <a class="addRatingMod"><i class="fas fa-plus"></i></a>
           </th>
@@ -15,7 +15,7 @@
             <tr>
               <td>
                 <a class="editRatingMod" data-rating-mod-id="{{ratingMod.id}}">
-                  {{localize (concat "wildsea." ratingMod.rating)}}
+                  {{localize (concat "wildsteppe." ratingMod.rating)}}
                   {{displayNumber ratingMod.value}}
                 </a>
               </td>
@@ -27,7 +27,7 @@
         {{else}}
           <tr>
             <td class="center" colspan="2">
-              {{localize "wildsea.none"}}
+              {{localize "wildsteppe.none"}}
             </td>
           </tr>
         {{/if}}

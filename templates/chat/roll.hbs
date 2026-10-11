@@ -1,19 +1,19 @@
-<div class="wildsea">
+<div class="wildsteppe">
   <h3>
     Roll
   </h3>
   <div class="flexcol spaced">
-    <div class="dice-roll">
+    <div class="dice-roll" data-action="expandRoll">
       <div class="dice-result">
         <h4 class="corners dice-formula">
           {{displayFormula}}
         </h4>
-        <div class="dice-tooltip" style="display: none;">
+        <div class="dice-tooltip">
           <div class="flexcol spaced">
             {{#if dicePool.edge}}
               <div class="flexrow spaced">
-                <label class="padded flex2">{{localize "wildsea.edge"}}</label>
-                <div class="padded flex2">{{localize (concat "wildsea." dicePool.edge)}}</div>
+                <label class="padded flex2">{{localize "wildsteppe.edge"}}</label>
+                <div class="padded flex2">{{localize (concat "wildsteppe." dicePool.edge)}}</div>
                 <div class="center corners light-transparent padded">
                   +{{dicePool.edgeDice}}d
                 </div>
@@ -22,8 +22,8 @@
 
             {{#if dicePool.rating}}
               <div class="flexrow spaced">
-                <label class="padded flex2">{{localize "wildsea.rating"}}</label>
-                <div class="padded flex2">{{localize (concat "wildsea." dicePool.rating)}}</div>
+                <label class="padded flex2">{{localize "wildsteppe.rating"}}</label>
+                <div class="padded flex2">{{localize (concat "wildsteppe." dicePool.rating)}}</div>
                 <div class="center corners light-transparent padded">
                   +{{dicePool.ratingDice}}d
                 </div>
@@ -32,8 +32,8 @@
 
             {{#if dicePool.skillType}}
               <div class="flexrow spaced">
-                <label class="padded flex2">{{localize (concat "wildsea." dicePool.skillType)}}</label>
-                <div class="padded flex2">{{localize (concat "wildsea." dicePool.skillKey)}}</div>
+                <label class="padded flex2">{{localize (concat "wildsteppe." dicePool.skillType)}}</label>
+                <div class="padded flex2">{{localize (concat "wildsteppe." dicePool.skillKey)}}</div>
                 <div class="center corners light-transparent padded">
                   +{{dicePool.skillDice}}d
                 </div>
@@ -42,7 +42,7 @@
 
             {{#if (gt dicePool.advantage 0)}}
               <div class="flexrow spaced">
-                <label class="padded flex2">{{localize "wildsea.advantage"}}</label>
+                <label class="padded flex2">{{localize "wildsteppe.advantage"}}</label>
                 <div class="padded flex2"></div>
                 <div class="center corners light-transparent padded">
                   +{{dicePool.advantage}}d
@@ -52,7 +52,7 @@
             
             {{#if (gt dicePool.cut 0)}}
               <div class="flexrow spaced">
-                <label class="padded flex2">{{localize "wildsea.cut"}}</label>
+                <label class="padded flex2">{{localize "wildsteppe.cut"}}</label>
                 <div class="padded flex2"></div>
                 <div class="center corners light-transparent padded">
                   {{dicePool.cut}}
@@ -73,12 +73,12 @@
         <h4 class="corners dice-total">
           {{total}}
         </h4>
-        <h3 class="corners dark padded center" data-tooltip="{{localize (concat "wildsea." resultText "Description")}}">
-          {{localize (concat "wildsea." resultText)}}
+        <h3 class="corners dark padded center" data-tooltip="{{localize (concat "wildsteppe." resultText "Description")}}">
+          {{localize (concat "wildsteppe." resultText)}}
         </h3>
         {{#if twist}}
-        <h4 class="center corners mid padded" data-tooltip="{{localize "wildsea.twistDescription"}}">
-          {{localize "wildsea.twist"}}
+        <h4 class="center corners mid padded" data-tooltip="{{localize "wildsteppe.twistDescription"}}">
+          {{localize "wildsteppe.twist"}}
         </h4>
         {{/if}}
       </div>

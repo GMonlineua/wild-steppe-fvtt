@@ -1,10 +1,10 @@
-import { WILDSEA } from '../config.js'
-import WildseaItemSheet from './item.js'
+import { WILDSTEPPE } from '../config.js'
+import WildsteppeItemSheet from './item.js'
 import { renderDialog } from '../dialog.js'
 
-export default class WildseaShipItemSheet extends WildseaItemSheet {
+export default class WildsteppeShipItemSheet extends WildsteppeItemSheet {
   get template() {
-    return `${WILDSEA.root_path}/templates/sheets/ship_item.hbs`
+    return `${WILDSTEPPE.root_path}/templates/sheets/ship_item.hbs`
   }
 
   static get defaultOptions() {
@@ -44,9 +44,9 @@ export default class WildseaShipItemSheet extends WildseaItemSheet {
     event.preventDefault()
 
     const data = await renderDialog(
-      game.i18n.localize('wildsea.ratingMod'),
+      game.i18n.localize('wildsteppe.ratingMod'),
       this.processRatingModDialog,
-      { config: WILDSEA },
+      { config: WILDSTEPPE },
       '/systems/wild-steppe/templates/dialogs/design_rating_mod.hbs',
     )
 
@@ -73,10 +73,10 @@ export default class WildseaShipItemSheet extends WildseaItemSheet {
     const ratingMod = ratingMods.filter((e) => e.id === ratingModId)[0]
 
     const data = await renderDialog(
-      game.i18n.localize('wildsea.ratingMod'),
+      game.i18n.localize('wildsteppe.ratingMod'),
       this.processRatingModDialog,
       {
-        config: WILDSEA,
+        config: WILDSTEPPE,
         ...ratingMod,
       },
       '/systems/wild-steppe/templates/dialogs/design_rating_mod.hbs',

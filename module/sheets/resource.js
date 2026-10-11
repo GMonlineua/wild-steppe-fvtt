@@ -1,9 +1,9 @@
-import { WILDSEA } from '../config.js'
-import WildseaItemSheet from './item.js'
+import { WILDSTEPPE } from '../config.js'
+import WildsteppeItemSheet from './item.js'
 
-export default class WildseaResourceSheet extends WildseaItemSheet {
+export default class WildsteppeResourceSheet extends WildsteppeItemSheet {
   get template() {
-    return `${WILDSEA.root_path}/templates/sheets/resource.hbs`
+    return `${WILDSTEPPE.root_path}/templates/sheets/resource.hbs`
   }
 
   static get defaultOptions() {

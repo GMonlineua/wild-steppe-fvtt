@@ -27,6 +27,20 @@
   .message-content {
     .body-font();
     font-size: 0.8rem;
+
+    .wildsteppe {
+      .dice-roll {
+        .dice-tooltip {
+          display: none;
+        }
+
+        &.expanded {
+          .dice-tooltip {
+            display: block;
+          }
+        }
+      }
+    }
   }
 
   &.ic {

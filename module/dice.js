@@ -7,7 +7,7 @@ export const addDiceColor = (
   outline = '#2d2a2b',
 ) => {
   const commonDice = {
-    category: 'Wildsea',
+    category: 'Wildsteppe',
     foreground: text,
     visibility: 'visible',
     font: 'Teko',
@@ -70,7 +70,7 @@ export const rollPool = async (dicePool) => {
 
   let displayFormula = `${totalDice}d`
   if (dicePool.cut > 0)
-    displayFormula += ` ${game.i18n.localize('wildsea.cut')} ${dicePool.cut}`
+    displayFormula += ` ${game.i18n.localize('wildsteppe.cut')} ${dicePool.cut}`
 
   const resultText = ((total) => {
     switch (total) {

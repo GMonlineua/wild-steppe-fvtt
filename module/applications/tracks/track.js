@@ -1,4 +1,4 @@
-export default class WildseaTrack {
+export default class WildsteppeTrack {
   constructor(data = {}) {
     this.id = data.id
     this.label = data.label
@@ -53,5 +53,14 @@ export default class WildseaTrack {
 
   breaker() {
     return `<span class="break"></span>`
+  }
+
+  displayVisibility() {
+    switch (this.visibility) {
+      case 'hidden':
+        return 'hidden-track'
+      default:
+        return this.visibility
+    }
   }
 }

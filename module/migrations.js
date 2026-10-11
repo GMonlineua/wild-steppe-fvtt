@@ -1,7 +1,7 @@
 export const runMigrations = () => {
   if (!game.user.isGM) return
 
-  const currentVersion = game.settings.get('wildsea', 'systemMigrationVersion')
+  const currentVersion = game.settings.get('wildsteppe', 'systemMigrationVersion')
   const NEEDS_MIGRATION_VERSION = '0.0.8'
 
   const needsMigration =
@@ -11,7 +11,7 @@ export const runMigrations = () => {
   if (needsMigration) {
     migrate()
     game.settings.set(
-      'wildsea',
+      'wildsteppe',
       'systemMigrationVersion',
       NEEDS_MIGRATION_VERSION,
     )
@@ -19,11 +19,11 @@ export const runMigrations = () => {
 }
 
 const migrate = () => {
-  const tracks = game.settings.get('wildsea', 'activeTracks')
+  const tracks = game.settings.get('wildsteppe', 'activeTracks')
   for (const track of Object.values(tracks)) {
     track.visibility = track.firefly ? 'secret' : 'open'
     tracks[track.id] = track
   }
 
-  game.settings.set('wildsea', 'activeTracks', tracks)
+  game.settings.set('wildsteppe', 'activeTracks', tracks)
 }

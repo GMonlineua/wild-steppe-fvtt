@@ -1,8 +1,13 @@
 @import url(./config.less);
 
 body {
-  .body-font();
+  --font-sans: 'Teko', serif;
+  --font-body: 'Merriweather', serif;
   font-size: 0.8rem;
+
+  &.game .app {
+    --font-primary: 'Merriweather', serif;
+  }
 }
 
 input[type='checkbox']:checked,
@@ -128,33 +133,34 @@ a.inline-roll {
   text-align: right;
 }
 
-button,
-input[type='text'],
-input[type='number'],
-input[type='password'],
-input[type='date'],
-input[type='time'],
-input[type='search'] {
-
-  &:focus,
-  &:hover {
-    box-shadow: 0 0 5px @mid-bg;
+.wildsteppe {
+  button,
+  input[type='text'],
+  input[type='number'],
+  input[type='password'],
+  input[type='date'],
+  input[type='time'],
+  input[type='search'] {
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 5px @mid-bg;
+    }
   }
-}
 
-button,
-form button,
-.dialog .dialog-buttons button {
-  .title-font();
-  .corners();
-  border: none;
-  border-radius: 0;
-  background: @light-transparent;
-
-  &.default {
-    background: @light-bg;
-    color: @white;
+  button,
+  form button,
+  .dialog .dialog-buttons button {
+    .title-font();
+    .corners();
     border: none;
+    border-radius: 0;
+    background: @light-transparent;
+
+    &.default {
+      background: @light-bg;
+      color: @white;
+      border: none;
+    }
   }
 }
 
@@ -167,27 +173,29 @@ form button,
   clip-path: none;
 }
 
-form {
-  button {
-    background: @light-bg;
-    color: @white;
-  }
+.wildsteppe {
+  form {
+    button {
+      background: @light-bg;
+      color: @white;
+    }
 
-  input[type='text'],
-  input[type='number'],
-  input[type='password'],
-  input[type='date'],
-  input[type='time'],
-  input[type='search'],
-  select {
-    .corners();
-    background: @light-transparent;
-    border: none;
-    padding: 0 0.5rem;
-  }
+    input[type='text'],
+    input[type='number'],
+    input[type='password'],
+    input[type='date'],
+    input[type='time'],
+    input[type='search'],
+    select {
+      .corners();
+      background: @light-transparent;
+      border: none;
+      padding: 0 0.5rem;
+    }
 
-  label {
-    font-variant: small-caps;
+    label {
+      font-variant: small-caps;
+    }
   }
 }
 
@@ -219,43 +227,43 @@ form {
 }
 
 .dialog-content {
-  form.wildsea {
+  form.wildsteppe {
     margin-bottom: 0.5rem;
-  }
 
-  .body-font();
+    .body-font();
 
-  label {
-    font-variant: small-caps;
-  }
+    label {
+      font-variant: small-caps;
+    }
 
-  h4 {
-    .title-font();
-    font-size: 1rem;
-  }
+    h4 {
+      .title-font();
+      font-size: 1rem;
+    }
 
-  p {
-    font-size: 0.8rem;
-  }
+    p {
+      font-size: 0.8rem;
+    }
 
-  input[type='text'],
-  input[type='number'],
-  input[type='password'],
-  input[type='date'],
-  input[type='time'],
-  input[type='search'] {
-    .corners();
-    border: none;
-    background: @light-transparent;
-    padding: 0 0.5rem;
+    input[type='text'],
+    input[type='number'],
+    input[type='password'],
+    input[type='date'],
+    input[type='time'],
+    input[type='search'] {
+      .corners();
+      border: none;
+      background: @light-transparent;
+      padding: 0 0.5rem;
 
-    &:focus {
-      box-shadow: none;
+      &:focus {
+        box-shadow: none;
+      }
     }
   }
 }
 
-.wildsea {
+.wildsteppe {
   .leaf-bullet();
 
   #context-menu {
@@ -283,11 +291,11 @@ form {
     display: block;
   }
 
-  .hidden {
+  .hidden-track {
     display: none;
   }
 
-  .wildsea-item {
+  .wildsteppe-item {
     margin: 0 0 1rem;
   }
 

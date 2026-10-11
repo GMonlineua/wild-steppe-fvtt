@@ -19,7 +19,7 @@
 
 ## Права
 
-- Це форк [системи для Wild Sea](https://gitlab.com/pacosgrove1/wildsea-foundry) від [Paul C](https://gitlab.com/pacosgrove1)
+- Це форк [системи для Wild Sea](https://gitlab.com/pacosgrove1/wildsteppe-foundry) від [Paul C](https://gitlab.com/pacosgrove1)
 - Створена на основі Дикого Поля від Святослава Демченко та Євгена Мокеєва
 - Автор: Vlad Dracula](https://bsky.app/profile/gmonline-ua.bsky.social) (GMonline-ua)
 

@@ -1,12 +1,12 @@
-import { WILDSEA } from '../config.js'
+import { WILDSTEPPE } from '../config.js'
 import { renderDialog } from '../dialog.js'
 import { enrich, listToRows, clamp, clickModifiers } from '../helpers.js'
-import WildseaActorSheet from './actor.js'
+import WildsteppeActorSheet from './actor.js'
 import * as Dice from '../dice.js'
 
-export default class WildseaPlayerSheet extends WildseaActorSheet {
+export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
   get template() {
-    return `${WILDSEA.root_path}/templates/sheets/player.hbs`
+    return `${WILDSTEPPE.root_path}/templates/sheets/player.hbs`
   }
 
   static get defaultOptions() {
@@ -18,8 +18,8 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
 
   async getData() {
     const context = await super.getData()
-    context.skillsList = listToRows(WILDSEA.skills, 2)
-    context.knowledgesList = listToRows(WILDSEA.knowledges, 2)
+    context.skillsList = listToRows(WILDSTEPPE.skills, 2)
+    context.knowledgesList = listToRows(WILDSTEPPE.knowledges, 2)
 
     for (const item of this.actor.items) {
       item.system.enrichedDetails = await enrich(item.system.details)
@@ -28,7 +28,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     context.system = this.actor.system
 
     const resources = this.actor.itemTypes.resource
-    for (const resourceType of WILDSEA.resourceTypes) {
+    for (const resourceType of WILDSTEPPE.resourceTypes) {
       context.system[resourceType] = resources
         .filter((r) => r.system.type === resourceType)
         .sort((a, b) => (a.sort < b.sort ? -1 : 1))
@@ -116,7 +116,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
 
   async adjustSkill(key, change = 1) {
     const currentValue = this.actor.system.skills[key] || 0
-    const newValue = clamp(currentValue + change, WILDSEA.skillMax)
+    const newValue = clamp(currentValue + change, WILDSTEPPE.skillMax)
 
     this.actor.update({
       system: {
@@ -149,7 +149,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
 
   async adjustKnowledges(key, change = 1) {
     const currentValue = this.actor.system.knowledges[key] || 0
-    const newValue = clamp(currentValue + change, WILDSEA.knowledgeMax)
+    const newValue = clamp(currentValue + change, WILDSTEPPE.knowledgeMax)
 
     this.actor.update({
       system: {
@@ -194,10 +194,10 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newAspectName'),
+      name: game.i18n.localize('wildsteppe.newAspectName'),
       type: 'aspect',
       system: {
-        details: game.i18n.localize('wildsea.newAspectDetails'),
+        details: game.i18n.localize('wildsteppe.newAspectDetails'),
         ...defaultData,
       },
     }
@@ -209,7 +209,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newResourceName'),
+      name: game.i18n.localize('wildsteppe.newResourceName'),
       type: 'resource',
       system: {
         ...defaultData,
@@ -223,10 +223,10 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsea.newTemporaryTrackName'),
+      name: game.i18n.localize('wildsteppe.newTemporaryTrackName'),
       type: 'temporaryTrack',
       system: {
-        details: game.i18n.localize('wildsea.newTemporaryTrackDetails'),
+        details: game.i18n.localize('wildsteppe.newTemporaryTrackDetails'),
         ...defaultData,
       },
     }
@@ -237,7 +237,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
   async updateRoll(event) {
     event.preventDefault()
     const data = event.currentTarget.dataset
-    const dicePool = game.wildsea.dicePool
+    const dicePool = game.wildsteppe.dicePool
     dicePool.setSkill(data.value)
   }
 
@@ -246,7 +246,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     const rolling = event.currentTarget.dataset.id
 
     const counters = {}
-    for (const counter of WILDSEA.counters) {
+    for (const counter of WILDSTEPPE.counters) {
       const countersData = this.actor.system.counters[counter]
       counters[counter] = countersData.level
     }
@@ -260,7 +260,7 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
     )
 
     const data = await renderDialog(
-      game.i18n.localize('wildsea.counterRoll'),
+      game.i18n.localize('wildsteppe.counterRoll'),
       this.handleCounterRoll,
       { counter: rolling, counters, advantageOptions, cutOptions },
       '/systems/wild-steppe/templates/dialogs/counter_roll.hbs',
@@ -292,7 +292,6 @@ export default class WildseaPlayerSheet extends WildseaActorSheet {
       ),
       roll,
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     }
     ChatMessage.create(chatData)
   }

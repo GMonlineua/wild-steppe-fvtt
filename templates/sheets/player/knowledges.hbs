@@ -1,5 +1,5 @@
 <div id="knowledges" class="flex0">
-  <h2 class="corners dark">{{localize "wildsea.knowledges"}}</h2>
+  <h2 class="corners dark">{{localize "wildsteppe.knowledges"}}</h2>
   <div class="bordered">
 
     {{#each knowledgesList as |row|}}
@@ -8,7 +8,7 @@
           {{#if knowledge}}
 
             <div class="flexrow list-track">
-              <label data-type="knowledge" data-value="{{knowledge}}">{{localize (concat "wildsea." knowledge)}}</label>
+              <label data-type="knowledge" data-value="{{knowledge}}">{{localize (concat "wildsteppe." knowledge)}}</label>
               <div class="flex0">
                 {{> "systems/wild-steppe/templates/shared/track.hbs"
                     value=(byKey @root.system.knowledges knowledge)

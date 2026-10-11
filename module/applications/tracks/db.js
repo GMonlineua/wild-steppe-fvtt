@@ -1,17 +1,17 @@
 import { renderDialog } from '../../dialog.js'
 import { clamp } from '../../helpers.js'
-import { WILDSEA } from '../../config.js'
+import { WILDSTEPPE } from '../../config.js'
 
-export class WildseaTrackDatabase extends Collection {
+export class WildsteppeTrackDatabase extends Collection {
   getTrackData() {
-    return game.settings.get('wildsea', 'activeTracks')
+    return game.settings.get('wildsteppe', 'activeTracks')
   }
 
   async showTrackDialog(title, data = {}) {
     return await renderDialog(
       game.i18n.localize(title),
       this.handleDialogData,
-      { ...data, config: WILDSEA },
+      { ...data, config: WILDSTEPPE },
       '/systems/wild-steppe/templates/applications/tracks/dialog.hbs',
     )
   }
@@ -34,7 +34,7 @@ export class WildseaTrackDatabase extends Collection {
     const { label, groups } = data
     if (label.trim() === '' || groups === '')
       return ui.notifications.warn(
-        game.i18n.localize('wildsea.TRACKS.requiredFields'),
+        game.i18n.localize('wildsteppe.TRACKS.requiredFields'),
       )
 
     const tracks = this.getTrackData()
@@ -49,14 +49,14 @@ export class WildseaTrackDatabase extends Collection {
       max,
     }
     tracks[newTrack.id] = newTrack
-    game.settings.set('wildsea', 'activeTracks', tracks)
+    game.settings.set('wildsteppe', 'activeTracks', tracks)
   }
 
   updateTrack(id, data = {}) {
     const { label, groups } = data
     if (label.trim() === '' || groups === '')
       return ui.notifications.warn(
-        game.i18n.localize('wildsea.TRACKS.requiredFields'),
+        game.i18n.localize('wildsteppe.TRACKS.requiredFields'),
       )
 
     const tracks = this.getTrackData()
@@ -73,7 +73,7 @@ export class WildseaTrackDatabase extends Collection {
       value,
       max,
     }
-    game.settings.set('wildsea', 'activeTracks', tracks)
+    game.settings.set('wildsteppe', 'activeTracks', tracks)
   }
 
   moveTrack(id, newIndex) {
@@ -84,13 +84,13 @@ export class WildseaTrackDatabase extends Collection {
     tracks.splice(tracks.indexOf(item), 1)
     tracks.splice(newIndex, 0, item)
     const newData = Object.fromEntries(tracks.map((c) => [c.id, c]))
-    game.settings.set('wildsea', 'activeTracks', newData)
+    game.settings.set('wildsteppe', 'activeTracks', newData)
   }
 
   deleteTrack(id) {
     const tracks = this.getTrackData()
     delete tracks[id]
-    game.settings.set('wildsea', 'activeTracks', tracks)
+    game.settings.set('wildsteppe', 'activeTracks', tracks)
   }
 
   markTrack(id, burn = false, amount = 1) {
@@ -101,7 +101,7 @@ export class WildseaTrackDatabase extends Collection {
       tracks[id].value += amount
     }
     tracks[id].value = clamp(tracks[id].value, tracks[id].max, tracks[id].burn)
-    game.settings.set('wildsea', 'activeTracks', tracks)
+    game.settings.set('wildsteppe', 'activeTracks', tracks)
   }
 
   refresh() {
@@ -111,7 +111,7 @@ export class WildseaTrackDatabase extends Collection {
       this.set(track.id, track)
 
     if (canvas.ready) {
-      game.wildsea.trackPanel.render(true)
+      game.wildsteppe.trackPanel.render(true)
     }
   }
 }

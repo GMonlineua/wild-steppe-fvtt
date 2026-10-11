@@ -1,5 +1,5 @@
 import { enrich } from './helpers.js'
-import WildseaTrack from './applications/tracks/track.js'
+import WildsteppeTrack from './applications/tracks/track.js'
 
 export const setupEnrichers = () => {
   CONFIG.TextEditor.enrichers = CONFIG.TextEditor.enrichers.concat([
@@ -18,14 +18,14 @@ export const setupEnrichers = () => {
 
 const enrichTrack = async (match) => {
   const [_m, groups, label] = match
-  const trackLabel = label ?? game.i18n.localize('wildsea.track')
-  const track = new WildseaTrack({ label: trackLabel, groups })
+  const trackLabel = label ?? game.i18n.localize('wildsteppe.track')
+  const track = new WildsteppeTrack({ label: trackLabel, groups })
   const container = document.createElement('span')
   container.className = 'track'
   foundry.utils.mergeObject(container.dataset, { label: trackLabel, groups })
 
   if (game.user.isGM) {
-    const tooltip = game.i18n.localize('wildsea.track_tooltip')
+    const tooltip = game.i18n.localize('wildsteppe.track_tooltip')
     foundry.utils.mergeObject(container.dataset, { tooltip })
   }
 
@@ -39,7 +39,7 @@ const enrichItem = async (match) => {
   const itemName = name ?? item.name
 
   const container = document.createElement('div')
-  container.className = 'wildsea-item'
+  container.className = 'wildsteppe-item'
   let html = `@UUID[${uuid}]{${itemName}}`
 
   if (item) {
@@ -62,7 +62,7 @@ const enrichItem = async (match) => {
         .map((mod) => {
           const sign = mod.value >= 0 ? '+' : ''
           return `<li><strong>${game.i18n.localize(
-            `wildsea.${mod.rating}`,
+            `wildsteppe.${mod.rating}`,
           )} ${sign}${mod.value}</strong></li>`
         })
         .join('')
@@ -80,7 +80,7 @@ const trackText = (track) => {
 
 export const stakesText = (s) => {
   const stakes = parseInt(s)
-  if (stakes === 0) return game.i18n.localize('wildsea.free')
-  if (stakes === 1) return game.i18n.localize('wildsea.stakesOne')
-  return game.i18n.format('wildsea.stakesMany', { stakes })
+  if (stakes === 0) return game.i18n.localize('wildsteppe.free')
+  if (stakes === 1) return game.i18n.localize('wildsteppe.stakesOne')
+  return game.i18n.format('wildsteppe.stakesMany', { stakes })
 }

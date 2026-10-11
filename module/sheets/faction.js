@@ -1,9 +1,9 @@
-import { WILDSEA } from '../config.js'
+import { WILDSTEPPE } from '../config.js'
 import { enrich } from '../helpers.js'
 
-export default class WildseaFactionSheet extends ItemSheet {
+export default class WildsteppeFactionSheet extends foundry.appv1.sheets.ItemSheet {
   get template() {
-    return `${WILDSEA.root_path}/templates/sheets/faction.hbs`
+    return `${WILDSTEPPE.root_path}/templates/sheets/faction.hbs`
   }
 
   static get defaultOptions() {

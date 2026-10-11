@@ -23,8 +23,12 @@
   font-style: italic;
 }
 body {
-  font-family: 'Merriweather', serif;
+  --font-sans: 'Teko', serif;
+  --font-body: 'Merriweather', serif;
   font-size: 0.8rem;
+}
+body.game .app {
+  --font-primary: 'Merriweather', serif;
 }
 input[type='checkbox']:checked,
 input[type='radio']:checked {
@@ -122,25 +126,25 @@ a.inline-roll.unstyled {
 .right {
   text-align: right;
 }
-button:focus,
-input[type='text']:focus,
-input[type='number']:focus,
-input[type='password']:focus,
-input[type='date']:focus,
-input[type='time']:focus,
-input[type='search']:focus,
-button:hover,
-input[type='text']:hover,
-input[type='number']:hover,
-input[type='password']:hover,
-input[type='date']:hover,
-input[type='time']:hover,
-input[type='search']:hover {
+.wildsteppe button:focus,
+.wildsteppe input[type='text']:focus,
+.wildsteppe input[type='number']:focus,
+.wildsteppe input[type='password']:focus,
+.wildsteppe input[type='date']:focus,
+.wildsteppe input[type='time']:focus,
+.wildsteppe input[type='search']:focus,
+.wildsteppe button:hover,
+.wildsteppe input[type='text']:hover,
+.wildsteppe input[type='number']:hover,
+.wildsteppe input[type='password']:hover,
+.wildsteppe input[type='date']:hover,
+.wildsteppe input[type='time']:hover,
+.wildsteppe input[type='search']:hover {
   box-shadow: 0 0 5px #626256;
 }
-button,
-form button,
-.dialog .dialog-buttons button {
+.wildsteppe button,
+.wildsteppe form button,
+.wildsteppe .dialog .dialog-buttons button {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
@@ -148,9 +152,9 @@ form button,
   border-radius: 0;
   background: #e2e2df;
 }
-button.default,
-form button.default,
-.dialog .dialog-buttons button.default {
+.wildsteppe button.default,
+.wildsteppe form button.default,
+.wildsteppe .dialog .dialog-buttons button.default {
   background: #858778;
   color: #f9f9f9;
   border: none;
@@ -162,23 +166,23 @@ form button.default,
 .tox button {
   clip-path: none;
 }
-form button {
+.wildsteppe form button {
   background: #858778;
   color: #f9f9f9;
 }
-form input[type='text'],
-form input[type='number'],
-form input[type='password'],
-form input[type='date'],
-form input[type='time'],
-form input[type='search'],
-form select {
+.wildsteppe form input[type='text'],
+.wildsteppe form input[type='number'],
+.wildsteppe form input[type='password'],
+.wildsteppe form input[type='date'],
+.wildsteppe form input[type='time'],
+.wildsteppe form input[type='search'],
+.wildsteppe form select {
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
   background: #e2e2df;
   border: none;
   padding: 0 0.5rem;
 }
-form label {
+.wildsteppe form label {
   font-variant: small-caps;
 }
 .directory .directory-header .header-search input {
@@ -205,63 +209,61 @@ form label {
   border: none;
   border-radius: 0;
 }
-.dialog-content {
+.dialog-content form.wildsteppe {
+  margin-bottom: 0.5rem;
   font-family: 'Merriweather', serif;
 }
-.dialog-content form.wildsea {
-  margin-bottom: 0.5rem;
-}
-.dialog-content label {
+.dialog-content form.wildsteppe label {
   font-variant: small-caps;
 }
-.dialog-content h4 {
+.dialog-content form.wildsteppe h4 {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   font-size: 1rem;
 }
-.dialog-content p {
+.dialog-content form.wildsteppe p {
   font-size: 0.8rem;
 }
-.dialog-content input[type='text'],
-.dialog-content input[type='number'],
-.dialog-content input[type='password'],
-.dialog-content input[type='date'],
-.dialog-content input[type='time'],
-.dialog-content input[type='search'] {
+.dialog-content form.wildsteppe input[type='text'],
+.dialog-content form.wildsteppe input[type='number'],
+.dialog-content form.wildsteppe input[type='password'],
+.dialog-content form.wildsteppe input[type='date'],
+.dialog-content form.wildsteppe input[type='time'],
+.dialog-content form.wildsteppe input[type='search'] {
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
   border: none;
   background: #e2e2df;
   padding: 0 0.5rem;
 }
-.dialog-content input[type='text']:focus,
-.dialog-content input[type='number']:focus,
-.dialog-content input[type='password']:focus,
-.dialog-content input[type='date']:focus,
-.dialog-content input[type='time']:focus,
-.dialog-content input[type='search']:focus {
+.dialog-content form.wildsteppe input[type='text']:focus,
+.dialog-content form.wildsteppe input[type='number']:focus,
+.dialog-content form.wildsteppe input[type='password']:focus,
+.dialog-content form.wildsteppe input[type='date']:focus,
+.dialog-content form.wildsteppe input[type='time']:focus,
+.dialog-content form.wildsteppe input[type='search']:focus {
   box-shadow: none;
 }
-.wildsea {
+.wildsteppe {
   font-family: 'Merriweather', serif;
   font-size: 0.8rem;
   background: #f9f9f9;
   color: #2d2a2b;
   --blockquote-border: #858778;
 }
-.wildsea ul {
+.wildsteppe ul {
   list-style: none;
   margin: 0.5rem 0;
   padding: 0;
   font-size: 0.8rem;
 }
-.wildsea ul li {
+.wildsteppe ul li {
   padding: 0 0 0.25rem 1.5rem;
   position: relative;
 }
-.wildsea ul li p {
+.wildsteppe ul li p {
   margin: 0 !important;
 }
-.wildsea ul li::before {
+.wildsteppe ul li::before {
   content: '';
   background: url(../assets/leaf-bullet.webp) center center no-repeat;
   background-size: contain;
@@ -272,14 +274,14 @@ form label {
   top: -1px;
   left: 0.25rem;
 }
-.wildsea #context-menu {
+.wildsteppe #context-menu {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   font-size: 0.9rem;
   text-transform: initial;
   font-weight: 500;
 }
-.wildsea .damaged-true {
+.wildsteppe .damaged-true {
   background: #bb434e;
   display: inline-block;
   padding-left: 0.45rem;
@@ -288,26 +290,26 @@ form label {
   position: relative;
   color: #f9f9f9;
 }
-.wildsea .damaged-false {
+.wildsteppe .damaged-false {
   display: none;
 }
-.wildsea .block {
+.wildsteppe .block {
   display: block;
 }
-.wildsea .hidden {
+.wildsteppe .hidden-track {
   display: none;
 }
-.wildsea .wildsea-item {
+.wildsteppe .wildsteppe-item {
   margin: 0 0 1rem;
 }
-.wildsea .rating {
+.wildsteppe .rating {
   padding: 0.25rem 0 0 0.5rem;
   height: 2rem;
 }
-.wildsea h1,
-.wildsea h2,
-.wildsea h3,
-.wildsea h4 {
+.wildsteppe h1,
+.wildsteppe h2,
+.wildsteppe h3,
+.wildsteppe h4 {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   border-bottom: none;
@@ -316,49 +318,49 @@ form label {
   font-weight: 600;
   position: relative;
 }
-.wildsea h1 a.addItem,
-.wildsea h2 a.addItem,
-.wildsea h3 a.addItem,
-.wildsea h4 a.addItem {
+.wildsteppe h1 a.addItem,
+.wildsteppe h2 a.addItem,
+.wildsteppe h3 a.addItem,
+.wildsteppe h4 a.addItem {
   position: absolute;
   right: 0.5rem;
   top: 0.25rem;
   font-size: 1rem;
 }
-.wildsea h1.corners,
-.wildsea h2.corners,
-.wildsea h3.corners,
-.wildsea h4.corners {
+.wildsteppe h1.corners,
+.wildsteppe h2.corners,
+.wildsteppe h3.corners,
+.wildsteppe h4.corners {
   padding: 0.5rem 0.5rem 0;
 }
-.wildsea h1 small,
-.wildsea h2 small,
-.wildsea h3 small,
-.wildsea h4 small {
+.wildsteppe h1 small,
+.wildsteppe h2 small,
+.wildsteppe h3 small,
+.wildsteppe h4 small {
   font-size: 0.8em;
   text-transform: initial;
 }
-.wildsea h2 {
+.wildsteppe h2 {
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
-.wildsea h3 {
+.wildsteppe h3 {
   font-size: 1.3rem;
   line-height: 1.3rem;
   text-transform: initial;
 }
-.wildsea h4 {
+.wildsteppe h4 {
   font-size: 1.1rem;
   line-height: 1.1rem;
   text-transform: initial;
 }
-.wildsea h5 {
+.wildsteppe h5 {
   font-family: 'Merriweather', serif;
   font-weight: bold;
   margin: 0 0 0.25rem;
   font-size: 0.8rem;
 }
-.wildsea blockquote {
+.wildsteppe blockquote {
   background: none;
   border: 3px solid var(--blockquote-border);
   border-radius: 0.8rem;
@@ -366,42 +368,42 @@ form label {
   margin: 0 0 0.5rem;
   font-style: normal;
 }
-.wildsea blockquote.padded {
+.wildsteppe blockquote.padded {
   margin: 2rem;
 }
-.wildsea blockquote h2,
-.wildsea blockquote h3 {
+.wildsteppe blockquote h2,
+.wildsteppe blockquote h3 {
   color: var(--blockquote-border);
 }
-.wildsea blockquote i,
-.wildsea blockquote em {
+.wildsteppe blockquote i,
+.wildsteppe blockquote em {
   font-style: italic;
 }
-.wildsea blockquote.red {
+.wildsteppe blockquote.red {
   --blockquote-border: #bb434e;
 }
-.wildsea blockquote.yellow {
+.wildsteppe blockquote.yellow {
   --blockquote-border: #f8a923;
 }
-.wildsea blockquote.green {
+.wildsteppe blockquote.green {
   --blockquote-border: #84966c;
 }
-.wildsea blockquote.sky {
+.wildsteppe blockquote.sky {
   --blockquote-border: #5c9abc;
 }
-.wildsea blockquote.blue {
+.wildsteppe blockquote.blue {
   --blockquote-border: #175d7e;
 }
-.wildsea blockquote.purple {
+.wildsteppe blockquote.purple {
   --blockquote-border: #a95c8d;
 }
-.wildsea blockquote.fiction,
-.wildsea blockquote.black {
+.wildsteppe blockquote.fiction,
+.wildsteppe blockquote.black {
   border: none;
   margin: 0.8rem 0;
   padding: 0.8rem 0.8rem 0;
 }
-.wildsea blockquote.fiction p {
+.wildsteppe blockquote.fiction p {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   font-weight: 600;
@@ -409,21 +411,21 @@ form label {
   line-height: 1.5rem;
   text-transform: initial;
 }
-.wildsea blockquote.black {
+.wildsteppe blockquote.black {
   border: 1px solid #2d2a2b;
   background: #2d2a2b;
 }
-.wildsea blockquote.black p,
-.wildsea blockquote.black h1,
-.wildsea blockquote.black h2,
-.wildsea blockquote.black h3 {
+.wildsteppe blockquote.black p,
+.wildsteppe blockquote.black h1,
+.wildsteppe blockquote.black h2,
+.wildsteppe blockquote.black h3 {
   color: #f9f9f9;
 }
-.wildsea table {
+.wildsteppe table {
   border: none;
   background: none;
 }
-.wildsea table thead {
+.wildsteppe table thead {
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
@@ -435,49 +437,49 @@ form label {
   line-height: 1rem;
   border-bottom: 0.5rem solid #f9f9f9;
 }
-.wildsea table thead th {
+.wildsteppe table thead th {
   font-size: 1.3rem;
   line-height: 1.3rem;
   text-transform: initial;
   padding: 0.5rem 0.5rem 0;
   font-weight: 600;
 }
-.wildsea table tbody tr:nth-child(odd) {
+.wildsteppe table tbody tr:nth-child(odd) {
   background: #e2e2df;
 }
-.wildsea table tbody tr td {
+.wildsteppe table tbody tr td {
   padding: 0.5rem;
 }
-.wildsea .black {
+.wildsteppe .black {
   color: #2d2a2b;
 }
-.wildsea .title {
+.wildsteppe .title {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
 }
-.wildsea .uppercase {
+.wildsteppe .uppercase {
   text-transform: uppercase;
 }
-.wildsea .text-lg {
+.wildsteppe .text-lg {
   font-size: 1.1rem;
 }
-.wildsea .text-dark {
+.wildsteppe .text-dark {
   color: #2e2c20;
 }
-.wildsea .text-mid {
+.wildsteppe .text-mid {
   color: #626256;
 }
-.wildsea .text-light {
+.wildsteppe .text-light {
   color: #858778;
 }
-.wildsea .text-light-transparent {
+.wildsteppe .text-light-transparent {
   color: #e2e2df;
 }
-.wildsea .img {
+.wildsteppe .img {
   text-align: center;
   min-width: 60px;
 }
-.wildsea .img img {
+.wildsteppe .img img {
   max-width: 100%;
   height: auto;
   border: none;
@@ -486,22 +488,22 @@ form label {
   margin: 0;
   background: #858778;
 }
-.wildsea label {
+.wildsteppe label {
   font-weight: bold;
   font-variant: small-caps;
 }
-.wildsea input,
-.wildsea select {
+.wildsteppe input,
+.wildsteppe select {
   border: none;
   background: #e2e2df;
   text-transform: initial;
   padding: 0 0.5rem;
   border-radius: 0;
 }
-.wildsea select {
+.wildsteppe select {
   padding: 0 0.25rem;
 }
-.wildsea #name {
+.wildsteppe #name {
   font-family: 'Teko', sans-serif;
   text-transform: uppercase;
   margin: 0;
@@ -510,11 +512,11 @@ form label {
   font-size: 48px;
   text-transform: initial;
 }
-.wildsea .navigation nav.sheet-tabs {
+.wildsteppe .navigation nav.sheet-tabs {
   border-top: none;
   border-bottom: none;
 }
-.wildsea .navigation nav.sheet-tabs a {
+.wildsteppe .navigation nav.sheet-tabs a {
   display: block;
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
   background: #e2e2df;
@@ -527,12 +529,12 @@ form label {
   padding: 0.5rem 0.5rem 0;
   font-weight: 600;
 }
-.wildsea .navigation nav.sheet-tabs a.active {
+.wildsteppe .navigation nav.sheet-tabs a.active {
   background: #626256;
   color: #f9f9f9;
   text-shadow: none;
 }
-.wildsea .description {
+.wildsteppe .description {
   --editor-height: 8rem;
   flex: 1;
   display: flex;
@@ -541,90 +543,90 @@ form label {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
-.wildsea .description .editor {
+.wildsteppe .description .editor {
   min-height: var(--editor-height);
   width: 100%;
 }
-.wildsea .description .editor .editor-edit {
+.wildsteppe .description .editor .editor-edit {
   z-index: 1000;
 }
-.wildsea .description .editor .editor-content {
+.wildsteppe .description .editor .editor-content {
   min-height: var(--editor-height);
 }
-.wildsea .description .editor .tox.tox-tinymce {
+.wildsteppe .description .editor .tox.tox-tinymce {
   min-height: var(--editor-height);
 }
-.wildsea .description.short {
+.wildsteppe .description.short {
   --editor-height: calc(8rem / 2);
 }
-.wildsea .center {
+.wildsteppe .center {
   text-align: center;
 }
-.wildsea .handle {
+.wildsteppe .handle {
   cursor: grab;
 }
-.wildsea .corners {
+.wildsteppe .corners {
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
 }
-.wildsea .rounded {
+.wildsteppe .rounded {
   border-radius: 0.5rem;
 }
-.wildsea .border-slim {
+.wildsteppe .border-slim {
   border: 1px solid #858778;
 }
-.wildsea .border-slim.padded {
+.wildsteppe .border-slim.padded {
   padding: calc(0.5rem - 0.5px);
 }
-.wildsea .dark {
+.wildsteppe .dark {
   background: #2e2c20;
   color: #f9f9f9;
 }
-.wildsea .mid {
+.wildsteppe .mid {
   background: #626256;
   color: #f9f9f9;
 }
-.wildsea .light {
+.wildsteppe .light {
   background: #858778;
   color: #f9f9f9;
 }
-.wildsea .light-transparent {
+.wildsteppe .light-transparent {
   background: #e2e2df;
 }
-.wildsea .padded {
+.wildsteppe .padded {
   padding: 0.5rem !important;
 }
-.wildsea .padded-x {
+.wildsteppe .padded-x {
   padding: 0 0.5rem !important;
 }
-.wildsea .no-margin {
+.wildsteppe .no-margin {
   margin: 0 !important;
 }
-.wildsea .list-track {
+.wildsteppe .list-track {
   margin-bottom: 0.25rem;
 }
-.wildsea #counters .clear-input {
+.wildsteppe #counters .clear-input {
   width: 30px;
   clip-path: none;
   background: none;
 }
-.wildsea .prosemirror menu .pm-dropdown > ul li::before {
+.wildsteppe .prosemirror menu .pm-dropdown > ul li::before {
   background: none !important;
 }
-.wildsea .slim-list {
+.wildsteppe .slim-list {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-.wildsea .slim-list .slim-item {
+.wildsteppe .slim-list .slim-item {
   background: #f9f9f9;
 }
-.wildsea .drag-preview {
+.wildsteppe .drag-preview {
   outline: 1px solid white;
 }
-.wildsea .drag-gap {
+.wildsteppe .drag-gap {
   visibility: hidden;
 }
-.wildsea ul.track {
+.wildsteppe ul.track {
   display: flex;
   flex-direction: row;
   flex: 0;
@@ -633,10 +635,10 @@ form label {
   margin: 0;
   padding: 0;
 }
-.wildsea ul.track.padded {
+.wildsteppe ul.track.padded {
   padding: 0.25rem 0 0;
 }
-.wildsea ul.track li {
+.wildsteppe ul.track li {
   display: block;
   width: 1rem;
   height: 1rem;
@@ -646,58 +648,58 @@ form label {
   border: 1px solid #626256;
   position: relative;
 }
-.wildsea ul.track li::before {
+.wildsteppe ul.track li::before {
   display: none;
 }
-.wildsea ul.track li.checked {
+.wildsteppe ul.track li.checked {
   background: linear-gradient(to top left, transparent 0%, transparent calc(50% - 2px), #2d2a2b 50%, transparent calc(50% + 2px), transparent 100%);
 }
-.wildsea ul.track li.burned {
+.wildsteppe ul.track li.burned {
   background: linear-gradient(to top left, transparent 0%, transparent calc(50% - 2px), #2d2a2b 50%, transparent calc(50% + 2px), transparent 100%), linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #2d2a2b 50%, transparent calc(50% + 2px), transparent 100%);
 }
-.wildsea .mire {
+.wildsteppe .mire {
   border-radius: 0 2rem 2rem 0;
   border: 2px solid #858778;
   padding: 0.25rem 0.5rem;
   position: relative;
 }
-.wildsea .mire .track {
+.wildsteppe .mire .track {
   position: absolute;
   right: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
 }
-.wildsea .bordered {
+.wildsteppe .bordered {
   border: 2px solid #626256;
   border-radius: 1rem;
   padding: 0.75rem 0.5rem 0.5rem;
   margin: -0.75rem 0 0;
   min-height: 3rem;
 }
-.wildsea h3 + .bordered {
+.wildsteppe h3 + .bordered {
   border-color: #858778;
 }
-.wildsea .aspect {
+.wildsteppe .aspect {
   border: 2px solid #858778;
   border-radius: 0 1rem 1rem 0;
 }
-.wildsea .aspect h3 {
+.wildsteppe .aspect h3 {
   padding: 0.5rem 0.5rem 0;
   border-radius: 0 calc(1rem - 2px) 0 0;
 }
-.wildsea .aspect .track {
+.wildsteppe .aspect .track {
   margin: 0.5rem;
 }
-.wildsea .aspect p {
+.wildsteppe .aspect p {
   margin: 0.5rem;
 }
-.wildsea .drawer {
+.wildsteppe .drawer {
   margin: 0;
 }
-.wildsea .drawer p {
+.wildsteppe .drawer p {
   margin-top: 0;
 }
-.wildsea #resources .item h3 {
+.wildsteppe #resources .item h3 {
   margin-bottom: 0;
 }
 .ship-container {
@@ -727,6 +729,12 @@ form label {
 .chat-message .message-content {
   font-family: 'Merriweather', serif;
   font-size: 0.8rem;
+}
+.chat-message .message-content .wildsteppe .dice-roll .dice-tooltip {
+  display: none;
+}
+.chat-message .message-content .wildsteppe .dice-roll.expanded .dice-tooltip {
+  display: block;
 }
 .chat-message.ic .message-header .message-sender {
   background: #626256;
@@ -834,8 +842,8 @@ form label {
 .prosemirror .editor-container .journal-page-content ul {
   margin: 0 0 0.5rem;
 }
-.sheet.journal-entry .journal-entry-content .journal-page-content .wildsea-item,
-.prosemirror .editor-container .journal-page-content .wildsea-item {
+.sheet.journal-entry .journal-entry-content .journal-page-content .wildsteppe-item,
+.prosemirror .editor-container .journal-page-content .wildsteppe-item {
   margin: 0 0 1rem;
 }
 .sheet.journal-entry .journal-entry-content .journal-page-content .flexrow,
@@ -1201,7 +1209,7 @@ form label {
 .track-panel .track-list .track .label {
   flex: 1;
 }
-.track-panel .track-list .track.hidden,
+.track-panel .track-list .track.hidden-track,
 .track-panel .track-list .track.secret {
   background: #e2e2df;
 }

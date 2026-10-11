@@ -1,65 +1,60 @@
-import { WILDSEA, registerSystemSettings } from './config.js'
+import { WILDSTEPPE, registerSystemSettings } from './config.js'
 import {
   loadHandlebarsHelpers,
   loadHandlebarsPartials,
 } from './preload.js'
-import WildseaActor from './actor.js'
+import WildsteppeActor from './actor.js'
 import { addDiceColor } from './dice.js'
-import WildseaAspectSheet from './sheets/aspect.js'
-import WildseaFactionSheet from './sheets/faction.js'
-import WildseaDicePool from './applications/dice_pool.js'
-import WildseaItem from './item.js'
-import WildseaJournalSheet from './sheets/journal.js'
-import WildseaPlayerSheet from './sheets/player.js'
-import WildseaResourceSheet from './sheets/resource.js'
-import WildseaShipSheet from './sheets/ship.js'
-import WildseaShipItemSheet from './sheets/ship_item.js'
+import WildsteppeAspectSheet from './sheets/aspect.js'
+import WildsteppeFactionSheet from './sheets/faction.js'
+import WildsteppeDicePool from './applications/dice_pool.js'
+import WildsteppeItem from './item.js'
+import WildsteppeJournalSheet from './sheets/journal.js'
+import WildsteppePlayerSheet from './sheets/player.js'
+import WildsteppeResourceSheet from './sheets/resource.js'
+import WildsteppeShipSheet from './sheets/ship.js'
+import WildsteppeShipItemSheet from './sheets/ship_item.js'
 import { setupEnrichers } from './enrichers.js'
 import { runMigrations } from './migrations.js'
 
-import * as WildseaTracks from './applications/tracks/index.js'
+import * as WildsteppeTracks from './applications/tracks/index.js'
 
 Hooks.once('init', () => {
-  console.log('wildsea | Initializing')
+  console.log('wildsteppe | Initializing')
 
   registerSystemSettings()
 
-  if (game.settings.get('wildsea', 'showDepth'))
-    WILDSEA.shipRatings.push('depth')
+  if (game.settings.get('wildsteppe', 'showDepth'))
+    WILDSTEPPE.shipRatings.push('depth')
 
-  CONFIG.wildsea = WILDSEA
+  CONFIG.wildsteppe = WILDSTEPPE
   CONFIG.ActiveEffect.legacyTransferral = false
-  game.wildsea = {}
+  game.wildsteppe = {}
 
-  WildseaTracks.setup()
+  WildsteppeTracks.setup()
 
   loadHandlebarsPartials()
   loadHandlebarsHelpers()
   setupEnrichers()
 
-  CONFIG.Actor.documentClass = WildseaActor
-  CONFIG.Item.documentClass = WildseaItem
+  CONFIG.Actor.documentClass = WildsteppeActor
+  CONFIG.Item.documentClass = WildsteppeItem
 
-  Actors.unregisterSheet('core', ActorSheet)
-  Actors.registerSheet('wildsea', WildseaPlayerSheet, { types: ['player'] })
-  Actors.registerSheet('wildsea', WildseaShipSheet, { types: ['ship'] })
+  foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet)
+  foundry.documents.collections.Actors.registerSheet('wildsteppe', WildsteppePlayerSheet, { types: ['player'] })
+  foundry.documents.collections.Actors.registerSheet('wildsteppe', WildsteppeShipSheet, { types: ['ship'] })
 
-  Items.unregisterSheet('core', ItemSheet)
-  Items.registerSheet('wildsea', WildseaAspectSheet, {
+  foundry.documents.collections.Items.unregisterSheet('core', foundry.appv1.sheets.ItemSheet)
+  foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeAspectSheet, {
     types: ['aspect', 'temporaryTrack'],
   })
-  Items.registerSheet('wildsea', WildseaFactionSheet, {
+  foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeFactionSheet, {
     types: ['faction', 'temporaryTrack'],
   })
-  Items.registerSheet('wildsea', WildseaResourceSheet, { types: ['resource'] })
-  Items.registerSheet('wildsea', WildseaShipItemSheet, {
-    types: ['design', 'fitting', 'undercrew'],
-  })
+  foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeResourceSheet, { types: ['resource'] })
 
-  Journal.unregisterSheet('core', JournalSheet)
-  Journal.registerSheet('wildsea', WildseaJournalSheet)
-
-  CONFIG.TinyMCE.content_css = `${WILDSEA.root_path}/styles/tinymce.css`
+  foundry.documents.collections.Journal.unregisterSheet('core', foundry.appv1.sheets.JournalSheet)
+  foundry.documents.collections.Journal.registerSheet('wildsteppe', WildsteppeJournalSheet)
 })
 
 Hooks.once('ready', () => {
@@ -67,29 +62,31 @@ Hooks.once('ready', () => {
 })
 
 Hooks.on('ready', async () => {
-  game.wildsea.dicePool = new WildseaDicePool()
+  game.wildsteppe.dicePool = new WildsteppeDicePool()
 })
 
 Hooks.on('renderJournalPageSheet', (_obj, html) => {
+  html = $(html)
   if (game.user.isGM) {
     html.on('click', '.track', async (event) => {
       const data = event.currentTarget.dataset
       console.log(data)
 
-      const result = await game.wildsea.trackDatabase.showTrackDialog(
-        'wildsea.TRACKS.addTrack',
+      const result = await game.wildsteppe.trackDatabase.showTrackDialog(
+        'wildsteppe.TRACKS.addTrack',
         data,
       )
       if (result.cancelled) return
-      game.wildsea.trackDatabase.addTrack({ ...result })
+      game.wildsteppe.trackDatabase.addTrack({ ...result })
     })
   }
 })
 
 Hooks.on('renderSceneControls', (_controls, html) => {
+  html = $(html)
   const dicePoolButton = $(
     `<li class="dice-pool-control" data-control="dice-pool" data-tooltip="${game.i18n.localize(
-      'wildsea.dicePoolTitle',
+      'wildsteppe.dicePoolTitle',
     )}">
         <i class="fas fa-dice"></i>
         <ol class="control-tools">
@@ -102,7 +99,7 @@ Hooks.on('renderSceneControls', (_controls, html) => {
     .find('.dice-pool-control')
     .removeClass('control-tool')
     .on('click', async () => {
-      await game.wildsea.dicePool.toggle()
+      await game.wildsteppe.dicePool.toggle()
     })
 })
 
@@ -111,7 +108,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
   const mid = '#626256'
   const light = '#858778'
 
-  addDiceColor(dice3d, 'wildsea-dark', 'Dark', dark)
-  addDiceColor(dice3d, 'wildsea-mid', 'Mid', mid)
-  addDiceColor(dice3d, 'wildsea-light', 'Light', light)
+  addDiceColor(dice3d, 'wildsteppe-dark', 'Dark', dark)
+  addDiceColor(dice3d, 'wildsteppe-mid', 'Mid', mid)
+  addDiceColor(dice3d, 'wildsteppe-light', 'Light', light)
 })

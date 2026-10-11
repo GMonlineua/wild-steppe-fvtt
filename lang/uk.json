@@ -1,5 +1,5 @@
 {
-  "wildsea": {
+  "wildsteppe": {
     "advantage": "Перевага",
     "armour": "Броня",
     "artistry": "Артистичність",
@@ -25,7 +25,6 @@
     "danger": "Небезпека",
     "delete": "Видалити",
     "description": "Опис",
-    "design": "Структура",
     "details": "Деталі",
     "dicePoolTitle": "Набір Кубиків",
     "diceRating": "{label} (+{value}d)",

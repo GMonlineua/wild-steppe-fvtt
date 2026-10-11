@@ -13,13 +13,13 @@ export const renderDialog = async (
       buttons: {
         yes: {
           label: `<i class="fas fa-check"></i> ${game.i18n.localize(
-            'wildsea.submit',
+            'wildsteppe.submit',
           )}`,
           callback: (html) => resolve(handler(html)),
         },
         cancel: {
           label: `<i class="fas fa-times"></i> ${game.i18n.localize(
-            'wildsea.cancel',
+            'wildsteppe.cancel',
           )}`,
           callback: (_html) => resolve({ cancelled: true }),
         },
