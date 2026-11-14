@@ -15,7 +15,6 @@ import WildsteppeResourceSheet from './sheets/resource.js'
 import WildsteppeShipSheet from './sheets/ship.js'
 import WildsteppeShipItemSheet from './sheets/ship_item.js'
 import { setupEnrichers } from './enrichers.js'
-import { runMigrations } from './migrations.js'
 
 import * as WildsteppeTracks from './applications/tracks/index.js'
 
@@ -52,10 +51,6 @@ Hooks.once('init', () => {
 
   foundry.documents.collections.Journal.unregisterSheet('core', foundry.appv1.sheets.JournalSheet)
   foundry.documents.collections.Journal.registerSheet('wildsteppe', WildsteppeJournalSheet)
-})
-
-Hooks.once('ready', () => {
-  runMigrations()
 })
 
 Hooks.on('ready', async () => {

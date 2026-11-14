@@ -4,9 +4,7 @@ export const loadHandlebarsPartials = () => {
     'systems/wild-steppe/templates/shared/aspect.hbs',
     'systems/wild-steppe/templates/shared/aspects.hbs',
     'systems/wild-steppe/templates/shared/description.hbs',
-    'systems/wild-steppe/templates/shared/effects.hbs',
     'systems/wild-steppe/templates/shared/number_field.hbs',
-    'systems/wild-steppe/templates/shared/rating_mods.hbs',
     'systems/wild-steppe/templates/shared/select_field.hbs',
     'systems/wild-steppe/templates/shared/slim_item.hbs',
     'systems/wild-steppe/templates/shared/text_field.hbs',
@@ -54,7 +52,7 @@ export const loadHandlebarsHelpers = () => {
   // Returns a track cell which is either marked, burned, or empty based on the information provided.
   Handlebars.registerHelper('trackCell', (index, value, burn) => {
     const css_class = index <= burn ? 'burned' : index <= value ? 'checked' : ''
-    return `<li class="box ${css_class}"><span class="dot" data-index=${index}"></span></li>`
+    return `<li class="box ${css_class}"><span class="dot" data-index="${index}"></span></li>`
   })
   Handlebars.registerHelper('selectOptGroup', (values, options) => {
     const { label, selected } = options?.hash

@@ -125,10 +125,10 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsteppe.newAspectName'),
+      name: game.i18n.localize('wildsteppe.newFactionName'),
       type: 'faction',
       system: {
-        details: game.i18n.localize('wildsteppe.newAspectDetails'),
+        details: game.i18n.localize('wildsteppe.newFactionDetails'),
         ...defaultData,
       },
     }
