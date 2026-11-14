@@ -38,7 +38,7 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
       a.sort < b.sort ? -1 : 1,
     )
 
-    context.temporaryTracks = this.actor.itemTypes.temporaryTrack.sort((a, b) =>
+    context.temporaryAspects = this.actor.itemTypes.temporaryAspect.sort((a, b) =>
       a.sort < b.sort ? -1 : 1,
     )
 
@@ -179,8 +179,8 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
       case 'resource':
         this.addResource()
         break
-      case 'temporaryTrack':
-        this.addTemporaryTrack()
+      case 'temporaryAspect':
+        this.addTemporaryAspect()
         break
       default:
         ui.notifications.warn(
@@ -219,14 +219,14 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
     this.addEmbeddedDocument(itemData)
   }
 
-  async addTemporaryTrack() {
+  async addTemporaryAspect() {
     const defaultData = {}
 
     const itemData = {
-      name: game.i18n.localize('wildsteppe.newTemporaryTrackName'),
-      type: 'temporaryTrack',
+      name: game.i18n.localize('wildsteppe.newTemporaryAspectName'),
+      type: 'temporaryAspect',
       system: {
-        details: game.i18n.localize('wildsteppe.newTemporaryTrackDetails'),
+        details: game.i18n.localize('wildsteppe.newTemporaryAspectDetails'),
         ...defaultData,
       },
     }

@@ -1,7 +1,7 @@
 {
   "wildsteppe": {
     "advantage": "Перевага",
-    "armour": "Броня",
+    "armour": "Захищеність",
     "artistry": "Артистичність",
     "aspects": "Аспекти",
     "athletics": "Атлетика",
@@ -51,8 +51,8 @@
     "newFactionName": "Фракція",
     "newResourceName": "Нове Спорядження",
     "newSlim": "Новий {type}",
-    "newTemporaryTrackDetails": "<p>Опис Тимчасового Треку.</p>",
-    "newTemporaryTrackName": "Новий Тимчасовий Трек",
+    "newTemporaryAspectDetails": "<p>Опис Тимчасового аспекту.</p>",
+    "newTemporaryAspectName": "Новий Тимчасовий аспект",
     "newUndercrewDetails": "<p>Опис Екіпажу.</p>",
     "noDice": "Немає кубиків для кидка",
     "none": "Порожньо",
@@ -62,12 +62,12 @@
     "rating": "Рейтинг",
     "ratingMod": "Модифікатор Рейтингу",
     "ratingMods": "Модифікатори Рейтингів",
-    "ratingRoll": "Кинути Рейтинг Корабля",
+    "ratingRoll": "Кинути Рейтинг табору",
     "ratings": "Рейтинги",
     "relationships": "Зв'язки",
     "relationship": "Зв'язок",
     "research": "Дослідження",
-    "resources": "Ресурси",
+    "resources": "Забезпеченість",
     "ruin": "Руїна",
     "salvage": "Уламок",
     "sense": "Чуття",
@@ -79,7 +79,7 @@
     "submit": "Підтвердити",
     "tags": "Теги",
     "team": "Згуртованість",
-    "temporaryTracks": "Тимчасові Треки",
+    "temporaryAspect": "Тимчасові аспекти",
     "toChat": "До Чату",
     "track": "Трек",
     "track_tooltip": "Додати Трек",
@@ -155,7 +155,7 @@
     "Item": {
       "aspect": "Аспект",
       "resource": "Ресурс",
-      "temporaryTrack": "Тимчасовий Трек Аспекту"
+      "temporaryAspect": "Тимчасовий аспект"
     }
   }
 }

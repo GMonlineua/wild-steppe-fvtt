@@ -32,12 +32,12 @@
       "counters": {
         "steppe": {
           "value": 0,
-          "max": 3,
+          "max": 4,
           "level": 0
         },
         "ruin": {
           "value": 0,
-          "max": 3,
+          "max": 4,
           "level": 0
         }
       }
@@ -80,7 +80,8 @@
       "aspect",
       "faction",
       "resource",
-      "temporaryTrack"
+      "temporaryAspect",
+      "project"
     ],
     "templates": {
       "hasDetails": {
@@ -116,7 +117,7 @@
         "hasTrack"
       ],
       "track": {
-        "max": 5
+        "max": 8
       }
     },
     "resource": {
@@ -125,7 +126,17 @@
         "hasTags"
       ]
     },
-    "temporaryTrack": {
+    "temporaryAspect": {
+      "templates": [
+        "hasDetails",
+        "hasTrack"
+      ],
+      "track": {
+        "max": 5
+      },
+      "type": ""
+    },
+    "project": {
       "templates": [
         "hasDetails",
         "hasTrack"
