@@ -19,41 +19,20 @@
 @black: #2d2a2b;
 @white: #f9f9f9;
 
-@font-face {
-  font-family: 'Teko';
-  src: url(./fonts/Teko/Teko-VariableFont_wght.ttf);
-}
+@sheet-font: 'UAF Memory', sans-serif;
 
 @font-face {
-  font-family: 'Merriweather';
-  src: url(./fonts/Merriweather/Merriweather-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Merriweather';
-  src: url(./fonts/Merriweather/Merriweather-Italic.ttf);
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Merriweather';
-  src: url(./fonts/Merriweather/Merriweather-Bold.ttf);
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'Merriweather';
-  src: url(./fonts/Merriweather/Merriweather-BoldItalic.ttf);
-  font-weight: 600;
-  font-style: italic;
+  font-family: 'UAF Memory';
+  src: url(./fonts/UAFMemoryVFVF.woff2) format('woff2');
+  font-weight: 100 900;
 }
 
 .body-font() {
-  font-family: 'Merriweather', serif;
+  font-family: @sheet-font;
 }
 
 .title-font() {
-  font-family: 'Teko', sans-serif;
+  font-family: @sheet-font;
   text-transform: uppercase;
 }
 
@@ -146,16 +125,6 @@
       border: none;
       margin: 0.8rem 0;
       padding: 0.8rem 0.8rem 0;
-    }
-
-    &.fiction {
-      p {
-        .title-font();
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-        text-transform: initial;
-      }
     }
 
     &.black {

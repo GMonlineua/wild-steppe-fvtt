@@ -1,13 +1,7 @@
 @import url(./config.less);
 
 body {
-  --font-sans: 'Teko', serif;
-  --font-body: 'Merriweather', serif;
   font-size: 0.8rem;
-
-  &.game .app {
-    --font-primary: 'Merriweather', serif;
-  }
 }
 
 input[type='checkbox']:checked,
@@ -46,7 +40,6 @@ a.inline-roll {
 
 #tooltip.link-matches,
 .locked-tooltip.link-matches {
-  .body-font();
   font-size: 0.8rem;
 
   a.content-link {
@@ -61,30 +54,11 @@ a.inline-roll {
 .window-app {
   .window-content {
     background: @white;
-    .body-font();
     font-size: 0.8rem;
-  }
-
-  .window-header {
-    .title-font();
-  }
-}
-
-#pause {
-  img {
-    content: url(../assets/spinner.webp);
-    opacity: 0.25;
-  }
-
-  figcaption {
-    .title-font();
-    font-size: 3rem;
-    text-shadow: 0 1px 6px @dark-bg;
   }
 }
 
 #tooltip {
-  .body-font();
   font-size: 0.9rem;
   color: @white;
 }
@@ -201,7 +175,6 @@ a.inline-roll {
 
 .directory .directory-header .header-search input {
   .corners();
-  .body-font();
   font-size: 0.8rem;
   background: @light-transparent;
   border: none;
@@ -209,7 +182,6 @@ a.inline-roll {
 }
 
 #chat-controls .roll-type-select {
-  .body-font();
   .corners();
   font-size: 0.8rem;
   background: @light-transparent;
@@ -217,7 +189,6 @@ a.inline-roll {
 }
 
 #chat-form textarea {
-  .body-font();
   .corners();
   font-size: 0.8rem;
   background: @white;
@@ -724,5 +695,4 @@ a.inline-roll {
 }
 
 @import url(./chat.less);
-@import url(./journals.less);
 @import url(./tracks.less);

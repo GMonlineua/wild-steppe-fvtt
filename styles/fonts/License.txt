@@ -1,0 +1,8 @@
+UAF Memory type family. 
+
+Created by Dmytro Rastvortsev, 2023.
+http://rastvor.com.ua
+
+
+License: CC BY-ND 4.0 DEED / Attribution-NoDerivs 4.0 International 
+https://creativecommons.org/licenses/by-nd/4.0/
