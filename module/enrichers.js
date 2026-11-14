@@ -51,18 +51,6 @@ const enrichItem = async (match) => {
     if (traits.length > 0) html += ` <small>${traits.join(' ')}</small>`
     html += '</h3>'
     if (item.system.details) html += item.system.details
-    if ((item.system.ratingMods?.length || 0) > 0) {
-      html += '<ul>'
-      html += item.system.ratingMods
-        .map((mod) => {
-          const sign = mod.value >= 0 ? '+' : ''
-          return `<li><strong>${game.i18n.localize(
-            `wildsteppe.${mod.rating}`,
-          )} ${sign}${mod.value}</strong></li>`
-        })
-        .join('')
-      html += '</ul>'
-    }
   }
 
   container.innerHTML = await enrich(html)

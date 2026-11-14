@@ -30,7 +30,6 @@ export const addDiceColor = (
 
 export const rollPool = async (dicePool) => {
   const totalDice =
-    (dicePool.edgeDice || 0) +
     (dicePool.skillDice || 0) +
     (dicePool.advantageDice || 0) +
     (dicePool.ratingDice || 0)

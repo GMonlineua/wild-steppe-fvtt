@@ -43,11 +43,4 @@ export const registerSystemSettings = () => {
     type: Boolean,
     default: true,
   })
-
-  game.settings.register('wildsteppe', 'systemMigrationVersion', {
-    config: false,
-    scope: 'world',
-    type: String,
-    default: '',
-  })
 }

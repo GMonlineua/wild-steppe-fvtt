@@ -46,9 +46,6 @@ export const loadHandlebarsHelpers = () => {
     return array[key]
   })
   Handlebars.registerHelper('join', (array, glue) => array.join(glue))
-  Handlebars.registerHelper('displayNumber', (value) =>
-    value >= 0 ? `+${value}` : value,
-  )
   // Returns a track cell which is either marked, burned, or empty based on the information provided.
   Handlebars.registerHelper('trackCell', (index, value, burn) => {
     const css_class = index <= burn ? 'burned' : index <= value ? 'checked' : ''

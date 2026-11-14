@@ -4,7 +4,6 @@ import {
   loadHandlebarsPartials,
 } from './preload.js'
 import WildsteppeActor from './actor.js'
-import { addDiceColor } from './dice.js'
 import WildsteppeAspectSheet from './sheets/aspect.js'
 import WildsteppeFactionSheet from './sheets/faction.js'
 import WildsteppeDicePool from './applications/dice_pool.js'
@@ -13,7 +12,6 @@ import WildsteppeJournalSheet from './sheets/journal.js'
 import WildsteppePlayerSheet from './sheets/player.js'
 import WildsteppeResourceSheet from './sheets/resource.js'
 import WildsteppeShipSheet from './sheets/ship.js'
-import WildsteppeShipItemSheet from './sheets/ship_item.js'
 import { setupEnrichers } from './enrichers.js'
 
 import * as WildsteppeTracks from './applications/tracks/index.js'

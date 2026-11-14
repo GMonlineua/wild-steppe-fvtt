@@ -20,6 +20,10 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
     const context = await super.getData()
     context.system = this.actor.system
 
+    for (const item of this.actor.items) {
+      item.system.enrichedDetails = await enrich(item.system.details)
+    }
+
     context.aspects = this.actor.itemTypes.aspect.sort((a, b) =>
       a.sort < b.sort ? -1 : 1,
     )

@@ -161,34 +161,6 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
     return { text: form.text.value.trim() }
   }
 
-  async adjustSlimTrack(itemId, itemType, isBurn, value = 1) {
-    const items = [...this.actor.system[itemType]]
-    const item = items.filter((i) => i.id === itemId)[0]
-
-    if (item) {
-      const marks = item.track.value
-      const burns = item.track.burn
-      const max = item.track.max
-
-      if (isBurn) {
-        const newBurn = clamp(burns + value, max)
-        item.track.burn = newBurn
-
-        if (marks <= burns) {
-          item.track.value = newBurn
-        }
-      } else {
-        item.track.value = clamp(marks + value, max, burns)
-      }
-
-      this.actor.update({
-        system: {
-          [itemType]: items,
-        },
-      })
-    }
-  }
-
   async removeSlimItem(itemId, itemType) {
     this.actor.update({
       system: {
