@@ -3,7 +3,6 @@ export const loadHandlebarsPartials = () => {
     'systems/wild-steppe/templates/applications/tracks/track.hbs',
     'systems/wild-steppe/templates/shared/aspect.hbs',
     'systems/wild-steppe/templates/shared/aspects.hbs',
-    'systems/wild-steppe/templates/shared/attribute.hbs',
     'systems/wild-steppe/templates/shared/description.hbs',
     'systems/wild-steppe/templates/shared/effects.hbs',
     'systems/wild-steppe/templates/shared/number_field.hbs',

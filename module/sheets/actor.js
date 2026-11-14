@@ -8,7 +8,6 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
     const context = super.getData()
     context.config = WILDSTEPPE
     context.showBurnTooltip = game.settings.get('wildsteppe', 'showBurnTooltip')
-    context.showAttributeTooltip = game.settings.get('wildsteppe', 'showAttributeTooltip')
     return context
   }
 

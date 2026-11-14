@@ -44,15 +44,6 @@ export const registerSystemSettings = () => {
     default: true,
   })
 
-  game.settings.register('wildsteppe', 'showAttributeTooltip', {
-    config: true,
-    scope: 'client',
-    name: 'SETTINGS.showAttributeTooltip.label',
-    hint: 'SETTINGS.showAttributeTooltip.hint',
-    type: Boolean,
-    default: true,
-  })
-
   game.settings.register('wildsteppe', 'systemMigrationVersion', {
     config: false,
     scope: 'world',
