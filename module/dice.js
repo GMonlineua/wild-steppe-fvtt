@@ -1,33 +1,3 @@
-export const addDiceColor = (
-  dice3d,
-  name,
-  description,
-  color,
-  text = '#f9f9f9',
-  outline = '#2d2a2b',
-) => {
-  const commonDice = {
-    category: 'Wildsteppe',
-    foreground: text,
-    visibility: 'visible',
-    font: 'Teko',
-    material: 'wood',
-    texture: 'wood',
-  }
-
-  dice3d.addColorset(
-    {
-      ...commonDice,
-      name,
-      description,
-      background: color,
-      edge: color,
-      outline,
-    },
-    'default',
-  )
-}
-
 export const rollPool = async (dicePool) => {
   const totalDice =
     (dicePool.skillDice || 0) +

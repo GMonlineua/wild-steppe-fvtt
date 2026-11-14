@@ -43,7 +43,7 @@ Hooks.once('init', () => {
     types: ['aspect', 'temporaryAspect'],
   })
   foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeFactionSheet, {
-    types: ['faction', 'temporaryAspect'],
+    types: ['faction'],
   })
   foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeResourceSheet, { types: ['resource'] })
 

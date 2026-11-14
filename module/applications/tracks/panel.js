@@ -84,20 +84,6 @@ export class WildsteppeTrackPanel extends Application {
     game.wildsteppe.trackDatabase.updateTrack(id, data)
   }
 
-  handleDialogData(html) {
-    const form = html[0].querySelector('form')
-    const groups = form.groups.value
-      .trim()
-      .split(',')
-      .map((v) => v.trim())
-      .join(',')
-    return {
-      label: form.label.value.trim(),
-      groups,
-      visibility: form.visibility.value,
-    }
-  }
-
   async interactWithTrack(action, event) {
     event.preventDefault()
     const id = event.currentTarget.closest('.track').dataset.trackId

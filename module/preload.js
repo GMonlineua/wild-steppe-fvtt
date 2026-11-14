@@ -36,7 +36,6 @@ export const loadHandlebarsHelpers = () => {
     return result
   })
 
-  Handlebars.registerHelper('fieldType', (type = null) => type || 'text')
   Handlebars.registerHelper(
     'any',
     (array) =>

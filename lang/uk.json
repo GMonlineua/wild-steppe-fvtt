@@ -21,7 +21,6 @@
     "cut": "Зріз",
     "danger": "Небезпека",
     "delete": "Видалити",
-    "description": "Опис",
     "details": "Деталі",
     "dicePoolTitle": "Набір Кубиків",
     "diceRating": "{label} (+{value}d)",
@@ -33,12 +32,10 @@
     "editSlim": "Редагувати {type}",
     "equipment": "Спорядження",
     "factions": "Фракції",
-    "free": "Безкоштовно",
     "hunting": "Полювання",
     "knowledges": "Знання",
     "manipulation": "Маніпуляція",
     "missing": "Відсутній",
-    "modifier": "Модифікатор",
     "name": "Назва",
     "newAspectDetails": "<p>Опис Аспекту.</p>",
     "newAspectName": "Новий Аспект",
@@ -109,10 +106,6 @@
       "trackGroups": "Довжина",
       "trackGroupsHelpText": "Створити розриви можна за допомогою ',' або '|'",
       "visibility": "Видимість"
-    },
-    "WARNINGS": {
-      "effectDeprecationTitle": "Ефекти застаріли",
-      "effectDeprecationBody": "Починаючи з наступної версії, ActiveEffects більше не буде найкращим методом зміни Рейтингу Корабля. Вам слід видалити будь-які ActiveEffects із предметів Корабля та перенести ваші модифікатори Рейтингу на нову вкладку «Модифікатори Рейтингу»."
     }
   },
   "SETTINGS": {

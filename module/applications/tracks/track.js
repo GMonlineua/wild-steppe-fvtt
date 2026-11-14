@@ -31,14 +31,6 @@ export default class WildsteppeTrack {
     return slots.join(this.breaker())
   }
 
-  hidden() {
-    return visibility === 'hidden'
-  }
-
-  secret() {
-    return visibility === 'secret'
-  }
-
   emptySlot() {
     return `<span class="slot"></span>`
   }
