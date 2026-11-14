@@ -20,12 +20,6 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
     const context = await super.getData()
     context.system = this.actor.system
 
-    for (const item of this.actor.items) {
-      item.system.enrichedDetails = await enrich(item.system.details)
-      if (item.system.stakes)
-        context.stakesUsed += parseInt(item.system.stakes) || 0
-    }
-
     context.aspects = this.actor.itemTypes.aspect.sort((a, b) =>
       a.sort < b.sort ? -1 : 1,
     )
@@ -48,7 +42,6 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
         html.find('.track').contextmenu(this.adjustTrack.bind(this, -1))
 
         html.find('.addItem').click(this.addItem.bind(this))
-        html.find('.damage-button').click(this.toggleFittingDamaged.bind(this))
       }
       html.find('.ratingRoll').click(this.ratingRoll.bind(this))
     }
@@ -65,14 +58,6 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
     switch (itemType) {
       case 'rating':
         await this.adjustRating(itemId, change, clickModifiers(event))
-        break
-      case 'reputations':
-        await this.adjustSlimTrack(
-          itemId,
-          itemType,
-          clickModifiers(event),
-          change,
-        )
         break
       default:
         break
@@ -241,14 +226,5 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
       cut: parseInt(form.cut.value || 0),
       advantageDice: parseInt(form.advantage.value || 0),
     }
-  }
-
-  async toggleFittingDamaged(event) {
-    const target = event.currentTarget
-    const fittingID = target.dataset.fittingId
-
-    const fitting = this.actor.items.get(fittingID)
-    const prevStatus = fitting.system.damaged
-    fitting.update({ 'system.damaged': !prevStatus })
   }
 }

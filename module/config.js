@@ -53,16 +53,6 @@ export const registerSystemSettings = () => {
     default: true,
   })
 
-  game.settings.register('wildsteppe', 'showDepth', {
-    config: true,
-    scope: 'world',
-    name: 'SETTINGS.showDepth.label',
-    hint: 'SETTINGS.showDepth.hint',
-    type: Boolean,
-    default: false,
-    requiresReload: true,
-  })
-
   game.settings.register('wildsteppe', 'systemMigrationVersion', {
     config: false,
     scope: 'world',

@@ -10,15 +10,6 @@
         </h4>
         <div class="dice-tooltip">
           <div class="flexcol spaced">
-            {{#if dicePool.edge}}
-              <div class="flexrow spaced">
-                <label class="padded flex2">{{localize "wildsteppe.edge"}}</label>
-                <div class="padded flex2">{{localize (concat "wildsteppe." dicePool.edge)}}</div>
-                <div class="center corners light-transparent padded">
-                  +{{dicePool.edgeDice}}d
-                </div>
-              </div>
-            {{/if}}
 
             {{#if dicePool.rating}}
               <div class="flexrow spaced">

@@ -124,7 +124,8 @@
       "templates": [
         "hasDetails",
         "hasTags"
-      ]
+      ],
+      "type": ""
     },
     "temporaryAspect": {
       "templates": [

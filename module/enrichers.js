@@ -44,13 +44,8 @@ const enrichItem = async (match) => {
 
   if (item) {
     const traits = []
-    if (item.system.stakes) traits.push(stakesText(item.system.stakes))
     if (item.system.track && item.system.track.max > 0)
       traits.push(trackText(item.system.track))
-    if (item.system.type) {
-      if (!['design', 'fitting'].includes(item.type))
-        traits.push(item.system.type)
-    }
 
     html = `<h3><a class="content-link" data-link draggable="true" data-uuid="${item.uuid}" data-id="${item.id}">${itemName}</a>`
     if (traits.length > 0) html += ` <small>${traits.join(' ')}</small>`
@@ -76,11 +71,4 @@ const enrichItem = async (match) => {
 
 const trackText = (track) => {
   return `${track.max}-Track`
-}
-
-export const stakesText = (s) => {
-  const stakes = parseInt(s)
-  if (stakes === 0) return game.i18n.localize('wildsteppe.free')
-  if (stakes === 1) return game.i18n.localize('wildsteppe.stakesOne')
-  return game.i18n.format('wildsteppe.stakesMany', { stakes })
 }

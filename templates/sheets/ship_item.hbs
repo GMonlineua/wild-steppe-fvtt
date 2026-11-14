@@ -6,15 +6,10 @@
         <div class="flexcol spaced">
           <input id="name" class="corners" type="text" name="name" value="{{item.name}}" placeholder="{{localize "wildsteppe.name"}}" />
           <div class="flexrow spaced">
-            {{#if (eq item.type 'design')}}
-              {{> "systems/wild-steppe/templates/shared/select_field.hbs" field="system.type" value=system.type label="wildsteppe.type" selectOptions=config.designTypes}}
-            {{else}}
-              {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.type" value=system.type label="wildsteppe.type"}}
-            {{/if}}
+            {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="system.type" value=system.type label="wildsteppe.type"}}
             {{#if hasTrack}}
               {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.track.max" value=system.track.max label="wildsteppe.track" min=0 max=8}}
             {{/if}}
-            {{> "systems/wild-steppe/templates/shared/number_field.hbs" field="system.stakes" value=system.stakes label="wildsteppe.stakes" min=0}}
           </div>
         </div>
       </div>

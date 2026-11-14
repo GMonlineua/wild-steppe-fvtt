@@ -24,9 +24,6 @@ Hooks.once('init', () => {
 
   registerSystemSettings()
 
-  if (game.settings.get('wildsteppe', 'showDepth'))
-    WILDSTEPPE.shipRatings.push('depth')
-
   CONFIG.wildsteppe = WILDSTEPPE
   CONFIG.ActiveEffect.legacyTransferral = false
   game.wildsteppe = {}
@@ -101,14 +98,4 @@ Hooks.on('renderSceneControls', (_controls, html) => {
     .on('click', async () => {
       await game.wildsteppe.dicePool.toggle()
     })
-})
-
-Hooks.once('diceSoNiceReady', (dice3d) => {
-  const dark = '#2e2c20'
-  const mid = '#626256'
-  const light = '#858778'
-
-  addDiceColor(dice3d, 'wildsteppe-dark', 'Dark', dark)
-  addDiceColor(dice3d, 'wildsteppe-mid', 'Mid', mid)
-  addDiceColor(dice3d, 'wildsteppe-light', 'Light', light)
 })
