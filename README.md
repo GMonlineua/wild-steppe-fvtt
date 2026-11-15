@@ -23,7 +23,7 @@
 - Створена на основі Дикого Поля від Святослава Демченко та Євгена Мокеєва
 - Автор: Vlad Dracula](https://bsky.app/profile/gmonline-ua.bsky.social) (GMonline-ua)
 
-[Foundry Shield]: https://img.shields.io/badge/Foundry-12-informational?style=flat-square
+[Foundry Shield]: https://img.shields.io/badge/Foundry-14-informational?style=flat-square
 [Foundry URL]: https://foundryvtt.com
 
 [Version]: https://img.shields.io/badge/Version-0.5-orange?style=flat-square
