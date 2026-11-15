@@ -3,57 +3,9 @@
   src: url(./fonts/UAFMemoryVFVF.woff2) format('woff2');
   font-weight: 100 900;
 }
-body {
-  font-size: 0.8rem;
-}
 input[type='checkbox']:checked,
 input[type='radio']:checked {
   accent-color: #626256;
-}
-a:hover,
-#context-menu li.context-item:hover {
-  text-shadow: 0 0 8px #858778;
-}
-a.content-link,
-a.inline-roll {
-  background: none;
-  padding: 0;
-  border: none;
-  border-radius: unset;
-  font-weight: 500;
-  color: inherit;
-}
-a.content-link i,
-a.inline-roll i {
-  color: #626256;
-  font-weight: bold;
-  font-style: normal !important;
-}
-a.content-link.unstyled,
-a.inline-roll.unstyled {
-  font-weight: inherit;
-  white-space: unset;
-  word-break: unset;
-}
-#tooltip.link-matches,
-.locked-tooltip.link-matches {
-  font-size: 0.8rem;
-}
-#tooltip.link-matches a.content-link,
-.locked-tooltip.link-matches a.content-link {
-  color: #f9f9f9;
-}
-#tooltip.link-matches a.content-link i,
-.locked-tooltip.link-matches a.content-link i {
-  color: #858778;
-}
-.window-app .window-content {
-  background: #f9f9f9;
-  font-size: 0.8rem;
-}
-#tooltip {
-  font-size: 0.9rem;
-  color: #f9f9f9;
 }
 .flexrow.spaced {
   column-gap: 0.25rem;
@@ -118,12 +70,9 @@ a.inline-roll.unstyled {
   color: #f9f9f9;
   border: none;
 }
-.prosemirror menu button {
+.wildsteppe .prosemirror menu button {
   clip-path: none;
   color: #2d2a2b;
-}
-.tox button {
-  clip-path: none;
 }
 .wildsteppe form button {
   background: #858778;
@@ -143,27 +92,6 @@ a.inline-roll.unstyled {
 }
 .wildsteppe form label {
   font-variant: small-caps;
-}
-.directory .directory-header .header-search input {
-  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
-  font-size: 0.8rem;
-  background: #e2e2df;
-  border: none;
-  padding: 0 0.5rem;
-}
-#chat-controls .roll-type-select {
-  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
-  font-size: 0.8rem;
-  background: #e2e2df;
-  padding: 0 0.5rem;
-}
-#chat-form textarea {
-  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
-  font-size: 0.8rem;
-  background: #f9f9f9;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0;
 }
 .dialog-content form.wildsteppe {
   margin-bottom: 0.5rem;
@@ -202,7 +130,6 @@ a.inline-roll.unstyled {
 .wildsteppe {
   font-family: 'UAF Memory', sans-serif;
   font-size: 0.8rem;
-  background: #f9f9f9;
   color: #2d2a2b;
   --blockquote-border: #858778;
 }
@@ -653,54 +580,21 @@ a.inline-roll.unstyled {
 .ship-container {
   align-items: flex-start;
 }
-.chat-message {
-  background: #f9f9f9;
-}
-.chat-message .message-header {
-  column-gap: 0.25rem;
-  margin-bottom: 0.25rem;
-  font-family: 'UAF Memory', sans-serif;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  line-height: 1.1rem;
-}
-.chat-message .message-header .message-sender {
-  clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
-  background: #858778;
-  color: #f9f9f9;
-  padding: 0.5rem 0.5rem 0;
-  text-transform: uppercase;
-}
-.chat-message .message-header .message-metadata {
-  padding: 0.5rem 0 0;
-}
-.chat-message .message-content {
-  font-size: 0.8rem;
-}
 .chat-message .message-content .wildsteppe .dice-roll .dice-tooltip {
   display: none;
 }
 .chat-message .message-content .wildsteppe .dice-roll.expanded .dice-tooltip {
   display: block;
 }
-.chat-message.ic .message-header .message-sender {
-  background: #626256;
-}
-.chat-message.whisper {
-  background: #e2e2df;
-}
-.chat-message.whisper .message-header .message-sender {
-  background: #2e2c20;
-}
-.dice-roll .dice-formula,
-.dice-roll .dice-total {
+.wildsteppe .dice-roll .dice-formula,
+.wildsteppe .dice-roll .dice-total {
   clip-path: polygon(0 0.5rem, 0.5rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1.5rem) 100%, 0 100%);
   background: #e2e2df;
   border: none;
   box-shadow: none;
   margin-bottom: 0.25rem;
 }
-.dice-tooltip .dice-rolls .roll.cut {
+.wildsteppe .dice-tooltip .dice-rolls .roll.cut {
   opacity: 0.7;
   color: #bb434e;
   filter: sepia(0.5) hue-rotate(-60deg);

@@ -8,7 +8,6 @@ import WildsteppeAspectSheet from './sheets/aspect.js'
 import WildsteppeFactionSheet from './sheets/faction.js'
 import WildsteppeDicePool from './applications/dice_pool.js'
 import WildsteppeItem from './item.js'
-import WildsteppeJournalSheet from './sheets/journal.js'
 import WildsteppePlayerSheet from './sheets/player.js'
 import WildsteppeResourceSheet from './sheets/resource.js'
 import WildsteppeShipSheet from './sheets/ship.js'
@@ -46,9 +45,6 @@ Hooks.once('init', () => {
     types: ['faction'],
   })
   foundry.documents.collections.Items.registerSheet('wildsteppe', WildsteppeResourceSheet, { types: ['resource'] })
-
-  foundry.documents.collections.Journal.unregisterSheet('core', foundry.appv1.sheets.JournalSheet)
-  foundry.documents.collections.Journal.registerSheet('wildsteppe', WildsteppeJournalSheet)
 })
 
 Hooks.on('ready', async () => {

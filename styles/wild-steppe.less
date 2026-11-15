@@ -1,66 +1,8 @@
 @import url(./config.less);
 
-body {
-  font-size: 0.8rem;
-}
-
 input[type='checkbox']:checked,
 input[type='radio']:checked {
   accent-color: @mid-bg;
-}
-
-a,
-#context-menu li.context-item {
-  &:hover {
-    text-shadow: 0 0 8px @light-bg;
-  }
-}
-
-a.content-link,
-a.inline-roll {
-  i {
-    color: @mid-bg;
-    font-weight: bold;
-    font-style: normal !important;
-  }
-
-  background: none;
-  padding: 0;
-  border: none;
-  border-radius: unset;
-  font-weight: 500;
-  color: inherit;
-
-  &.unstyled {
-    font-weight: inherit;
-    white-space: unset;
-    word-break: unset;
-  }
-}
-
-#tooltip.link-matches,
-.locked-tooltip.link-matches {
-  font-size: 0.8rem;
-
-  a.content-link {
-    color: @white;
-
-    i {
-      color: @light-bg;
-    }
-  }
-}
-
-.window-app {
-  .window-content {
-    background: @white;
-    font-size: 0.8rem;
-  }
-}
-
-#tooltip {
-  font-size: 0.9rem;
-  color: @white;
 }
 
 .flexrow {
@@ -138,13 +80,9 @@ a.inline-roll {
   }
 }
 
-.prosemirror menu button {
+.wildsteppe .prosemirror menu button {
   clip-path: none;
   color: @black;
-}
-
-.tox button {
-  clip-path: none;
 }
 
 .wildsteppe {
@@ -171,30 +109,6 @@ a.inline-roll {
       font-variant: small-caps;
     }
   }
-}
-
-.directory .directory-header .header-search input {
-  .corners();
-  font-size: 0.8rem;
-  background: @light-transparent;
-  border: none;
-  padding: 0 0.5rem;
-}
-
-#chat-controls .roll-type-select {
-  .corners();
-  font-size: 0.8rem;
-  background: @light-transparent;
-  padding: 0 0.5rem;
-}
-
-#chat-form textarea {
-  .corners();
-  font-size: 0.8rem;
-  background: @white;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0;
 }
 
 .dialog-content {
@@ -277,7 +191,6 @@ a.inline-roll {
 
   .body-font();
   font-size: 0.8rem;
-  background: @white;
   color: @black;
 
   h1,
