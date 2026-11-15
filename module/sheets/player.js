@@ -1,8 +1,6 @@
 import { WILDSTEPPE } from '../config.js'
-import { renderDialog } from '../dialog.js'
-import { enrich, listToRows, clamp, clickModifiers } from '../helpers.js'
+import { enrich, listToRows, clamp } from '../helpers.js'
 import WildsteppeActorSheet from './actor.js'
-import * as Dice from '../dice.js'
 
 export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
   get template() {
@@ -67,9 +65,6 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
 
         // rollable links
         html.find('.roll').click(this.updateRoll.bind(this))
-
-        // roll counter
-        html.find('.rollCounter').click(this.rollCounter.bind(this))
       }
     }
 
@@ -129,26 +124,6 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
         },
       },
     })
-  }
-
-  async adjustCounter(counter, change = 1) {
-    const counterMax = this.actor.system.counters[counter]?.max || 3
-    const marks = this.actor.system.counters[counter]?.value
-
-    let update = {
-      system: {
-        counters: {
-          [counter]: {
-            value: marks,
-          },
-        },
-      },
-    }
-
-    const newValue = clamp(marks + change, counterMax)
-    update.system.counters[counter].value = newValue
-
-    this.actor.update({ ...update })
   }
 
   async adjustKnowledges(key, change = 1) {
@@ -246,69 +221,5 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
     const data = event.currentTarget.dataset
     const dicePool = game.wildsteppe.dicePool
     dicePool.setSkill(data.value)
-  }
-
-  async rollCounter(event) {
-    event.preventDefault()
-    const rolling = event.currentTarget.dataset.id
-
-    const counters = {}
-    for (const counter of WILDSTEPPE.counters) {
-      const countersData = this.actor.system.counters[counter]
-      counters[counter] = countersData.level
-    }
-
-    const advantageOptions = Object.fromEntries(
-      [0, 1, 2, 3].map((n) => [n, `+${n}d`]),
-    )
-
-    const cutOptions = Object.fromEntries(
-      [0, 1, 2, 3].map((n) => [n, `${n}d`]),
-    )
-
-    const data = await renderDialog(
-      game.i18n.localize('wildsteppe.counterRoll'),
-      this.handleCounterRoll,
-      { counter: rolling, counters, advantageOptions, cutOptions },
-      '/systems/wild-steppe/templates/dialogs/counter_roll.hbs',
-    )
-
-    if (data.cancelled) return
-
-    const { counter, advantageDice, cut } = data
-
-    const counterDice = this.actor.system.counters[counter];
-
-    const dicePool = {
-      counter: rolling,
-      ratingDice: counterDice.level,
-      advantageDice,
-      cut,
-    }
-
-    console.log(dicePool)
-
-    const [roll, outcome] = await Dice.rollPool(dicePool)
-
-    const chatData = {
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker(),
-      content: await renderTemplate(
-        'systems/wild-steppe/templates/chat/roll.hbs',
-        outcome,
-      ),
-      roll,
-      sound: CONFIG.sounds.dice,
-    }
-    ChatMessage.create(chatData)
-  }
-
-  handleCounterRoll(html) {
-    const form = html[0].querySelector('form')
-    return {
-      counter: form.counter.value,
-      cut: parseInt(form.cut.value || 0),
-      advantageDice: parseInt(form.advantage.value || 0),
-    }
   }
 }

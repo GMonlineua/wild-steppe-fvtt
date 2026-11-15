@@ -495,7 +495,11 @@ input[type='radio']:checked {
     gap: 0.25rem;
 
     .slim-item {
-      background: @white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0 0.5rem;
     }
   }
 
@@ -503,6 +507,7 @@ input[type='radio']:checked {
     margin: 0.25rem 0 0;
     white-space: pre-line;
     color: @mid-bg;
+    flex-basis: 100%;
   }
 
   .drag-preview {

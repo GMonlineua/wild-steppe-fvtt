@@ -11,8 +11,7 @@ WILDSTEPPE.knowledges = [
   'old'
 ]
 WILDSTEPPE.resourceTypes = ['equipment', 'salvage', 'chart']
-WILDSTEPPE.shipRatings = ['armour', 'speed', 'resources', 'team', 'danger']
-WILDSTEPPE.counters = ['steppe', 'ruin']
+WILDSTEPPE.shipRatings = ['armour', 'speed', 'resources', 'team']
 WILDSTEPPE.skillMax = 3
 WILDSTEPPE.skills = [
   'athletics',
@@ -29,6 +28,7 @@ WILDSTEPPE.skills = [
   'sense',
 ]
 WILDSTEPPE.slimWithDescription = ['cargo']
+WILDSTEPPE.slimTracks = { relationships: 2 }
 WILDSTEPPE.trackVisibilityOptions = {
   open: 'wildsteppe.TRACKS.open',
   hidden: 'wildsteppe.TRACKS.hidden',

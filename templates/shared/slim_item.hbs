@@ -1,7 +1,17 @@
 <div class="slim-item slimContextMenu padded rounded border-slim" data-item-id="{{id}}" data-item-type="{{type}}">
+    <span>
     {{#if text}}
       {{text}}
     {{else}}
       <em>{{localize "wildsteppe.missing"}}</em>
+    {{/if}}
+    </span>
+    {{#if track}}
+      <div class="flex0">
+        {{> "systems/wild-steppe/templates/shared/track.hbs" track id=id type=type}}
+      </div>
+    {{/if}}
+    {{#if description}}
+      <p class="slim-description">{{description}}</p>
     {{/if}}
 </div>

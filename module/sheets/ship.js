@@ -67,6 +67,9 @@ export default class WildsteppeShipSheet extends WildsteppeActorSheet {
       case 'rating':
         await this.adjustRating(itemId, change, clickModifiers(event))
         break
+      case 'counter':
+        await this.adjustCounter(itemId, change)
+        break
       default:
         break
     }

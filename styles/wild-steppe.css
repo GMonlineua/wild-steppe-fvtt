@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'UAF Memory';
   src: url(./fonts/UAFMemoryVFVF.woff2) format('woff2');
-  font-weight: 100 900;
+  font-weight: 70 900;
 }
 input[type='checkbox']:checked,
 input[type='radio']:checked {
@@ -493,7 +493,17 @@ input[type='radio']:checked {
   gap: 0.25rem;
 }
 .wildsteppe .slim-list .slim-item {
-  background: #f9f9f9;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 0.5rem;
+}
+.wildsteppe .slim-description {
+  margin: 0.25rem 0 0;
+  white-space: pre-line;
+  color: #626256;
+  flex-basis: 100%;
 }
 .wildsteppe .drag-preview {
   outline: 1px solid white;

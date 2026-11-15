@@ -1,0 +1,16 @@
+<div id="counters" class="flex0">
+  <h2 class="corners dark">{{localize "wildsteppe.counters"}}</h2>
+  <div class="bordered">
+    {{#each system.counters as |counter id|}}
+      <div class="flexrow list-track">
+        <label>
+          <a class="rollCounter" data-id="{{id}}">{{localize (concat "wildsteppe." id)}}</a>
+          <input class="clear-input" type="number" name="system.counters.{{id}}.level" value="{{counter.level}}" data-dtype="Number"/>
+        </label>
+        <div class="flex0">
+          {{> "systems/wild-steppe/templates/shared/track.hbs" max=counter.max value=counter.value id=id type="counter"}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

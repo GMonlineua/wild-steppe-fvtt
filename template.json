@@ -65,11 +65,13 @@
           "value": 0,
           "burn": 0,
           "max": 4
-        },
+        }
+      },
+      "counters": {
         "danger": {
           "value": 0,
-          "burn": 0,
-          "max": 10
+          "max": 5,
+          "level": 0
         }
       },
       "type": ""

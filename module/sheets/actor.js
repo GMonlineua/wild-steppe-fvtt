@@ -2,12 +2,18 @@ import { WILDSTEPPE } from '../config.js'
 import { clamp, clickModifiers } from '../helpers.js'
 import { renderDialog } from '../dialog.js'
 import SortableJS from '../lib/sortable.complete.esm.js'
+import * as Dice from '../dice.js'
 
 export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorSheet {
   async getData() {
     const context = super.getData()
     context.config = WILDSTEPPE
     context.showBurnTooltip = game.settings.get('wildsteppe', 'showBurnTooltip')
+    for (const [itemType, max] of Object.entries(WILDSTEPPE.slimTracks)) {
+      for (const item of this.actor.system[itemType] ?? []) {
+        item.track ??= { value: 0, burn: 0, max }
+      }
+    }
     return context
   }
 
@@ -24,6 +30,13 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
         // Item tracks
         html.find('.item .track').click(this.increaseItemTrack.bind(this))
         html.find('.item .track').contextmenu(this.reduceItemTrack.bind(this))
+
+        html.find('.slim-item .track').click(this.adjustSlimTrack.bind(this, 1))
+        html
+        .find('.slim-item .track')
+        .contextmenu(this.adjustSlimTrack.bind(this, -1))
+
+        html.find('.rollCounter').click(this.rollCounter.bind(this))
 
         //reorder slim items
         for (const list of html.find('.slim-list'))
@@ -143,6 +156,26 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
     })
   }
 
+  async adjustCounter(counter, change = 1) {
+    const counterMax = this.actor.system.counters[counter]?.max || 3
+    const marks = this.actor.system.counters[counter]?.value
+
+    let update = {
+      system: {
+        counters: {
+          [counter]: {
+            value: marks,
+          },
+        },
+      },
+    }
+
+    const newValue = clamp(marks + change, counterMax)
+    update.system.counters[counter].value = newValue
+
+    this.actor.update({ ...update })
+  }
+
   async editSlimItem(itemId, itemType) {
     const items = this.actor.system[itemType]
     const item = items.filter((i) => i.id === itemId)[0]
@@ -187,6 +220,26 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
         ),
       },
     })
+  }
+
+  async adjustSlimTrack(change, event) {
+    event.preventDefault()
+    event.stopPropagation()
+
+    const { itemId, itemType } = event.currentTarget.dataset
+    const items = this.actor.system[itemType]
+    const item = items.find((i) => i.id === itemId)
+    if (!item?.track) return
+
+      const { value, burn, max } = item.track
+      if (clickModifiers(event)) {
+        item.track.burn = clamp(burn + change, max)
+        if (value <= burn) item.track.value = item.track.burn
+      } else {
+        item.track.value = clamp(value + change, max, burn)
+      }
+
+      this.actor.update({ system: { [itemType]: items } })
   }
 
   async sendSlimToChat(itemId, itemType) {
@@ -323,5 +376,64 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
         [itemType]: items,
       },
     })
+  }
+
+  async rollCounter(event) {
+    event.preventDefault()
+    const rolling = event.currentTarget.dataset.id
+
+    const counters = {}
+    for (const [key, data] of Object.entries(this.actor.system.counters)) {
+      counters[key] = data.level
+    }
+
+    const advantageOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `+${n}d`]),
+    )
+
+    const cutOptions = Object.fromEntries(
+      [0, 1, 2, 3].map((n) => [n, `${n}d`]),
+    )
+
+    const data = await renderDialog(
+      game.i18n.localize('wildsteppe.counterRoll'),
+      this.handleCounterRoll,
+      { counter: rolling, counters, advantageOptions, cutOptions },
+      '/systems/wild-steppe/templates/dialogs/counter_roll.hbs',
+    )
+
+    if (data.cancelled) return
+
+      const { counter, advantageDice, cut } = data
+
+    const dicePool = {
+      counter,
+      ratingDice: this.actor.system.counters[counter]?.level || 0,
+      advantageDice,
+      cut,
+    }
+
+    const [roll, outcome] = await Dice.rollPool(dicePool)
+
+    const chatData = {
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker(),
+      content: await renderTemplate(
+        'systems/wild-steppe/templates/chat/roll.hbs',
+        outcome,
+      ),
+      roll,
+      sound: CONFIG.sounds.dice,
+    }
+    ChatMessage.create(chatData)
+  }
+
+  handleCounterRoll(html) {
+    const form = html[0].querySelector('form')
+    return {
+      counter: form.counter.value,
+      cut: parseInt(form.cut.value || 0),
+      advantageDice: parseInt(form.advantage.value || 0),
+    }
   }
 }
