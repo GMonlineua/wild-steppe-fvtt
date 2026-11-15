@@ -1,7 +1,6 @@
 import { WILDSTEPPE } from '../config.js'
-import { clamp, clickModifiers } from '../helpers.js'
+import { clamp, clickModifiers, makeSortable } from '../helpers.js'
 import { renderDialog } from '../dialog.js'
-import SortableJS from '../lib/sortable.complete.esm.js'
 import * as Dice from '../dice.js'
 
 export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorSheet {
@@ -38,9 +37,15 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
 
         html.find('.rollCounter').click(this.rollCounter.bind(this))
 
-        //reorder slim items
-        for (const list of html.find('.slim-list'))
-          this.reorderSlimListHandler(list)
+        for (const list of html.find('.slim-list')) {
+          makeSortable(list, '.slim-item', (element, newIndex) =>
+          this.moveSlimItem(
+            element.dataset.itemId,
+            newIndex,
+            element.dataset.itemType,
+          ),
+          )
+        }
       }
     }
     super.activateListeners(html)
@@ -346,22 +351,6 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
         },
       })
     }
-  }
-
-  reorderSlimListHandler(list) {
-    new SortableJS(list, {
-      animation: 200,
-      direction: 'vertical',
-      draggable: '.slim-item',
-      dragClass: 'drag-preview',
-      ghostClass: 'drag-gap',
-      onEnd: (event) => {
-        const id = event.item.dataset.itemId
-        const itemType = event.item.dataset.itemType
-        const newIndex = event.newDraggableIndex
-        this.moveSlimItem(id, newIndex, itemType)
-      },
-    })
   }
 
   moveSlimItem(id, newIndex, itemType) {

@@ -1,6 +1,5 @@
-import { clickModifiers } from '../../helpers.js'
+import { clickModifiers, makeSortable } from '../../helpers.js'
 import WildsteppeTrack from './track.js'
-import SortableJS from '../../lib/sortable.complete.esm.js'
 
 export class WildsteppeTrackPanel extends Application {
   constructor(db, options) {
@@ -45,18 +44,9 @@ export class WildsteppeTrackPanel extends Application {
         .find('.slots')
         .contextmenu(this.interactWithTrack.bind(this, 'unmark'))
 
-      new SortableJS(html.find('.track-list').get(0), {
-        animation: 200,
-        direction: 'vertical',
-        draggable: '.track',
-        dragClass: 'drag-preview',
-        ghostClass: 'drag-gap',
-        onEnd: (event) => {
-          const id = event.item.dataset.trackId
-          const newIndex = event.newDraggableIndex
-          game.wildsteppe.trackDatabase.moveTrack(id, newIndex)
-        },
-      })
+      makeSortable(html.find('.track-list').get(0), '.track', (element, newIndex) =>
+        game.wildsteppe.trackDatabase.moveTrack(element.dataset.trackId, newIndex),
+      )
     }
   }
 
