@@ -47,36 +47,6 @@
   );
 }
 
-.leaf-bullet() {
-  ul {
-    list-style: none;
-    margin: 0.5rem 0;
-    padding: 0;
-    font-size: 0.8rem;
-
-    li {
-      padding: 0 0 0.25rem 1.5rem;
-      position: relative;
-
-      p {
-        margin: 0 !important;
-      }
-
-      &::before {
-        content: '';
-        background: url(../assets/leaf-bullet.webp) center center no-repeat;
-        background-size: contain;
-        width: 1rem;
-        height: 1rem;
-        display: inline-block;
-        position: absolute;
-        top: -1px;
-        left: 0.25rem;
-      }
-    }
-  }
-}
-
 .blockquotes() {
   --blockquote-border: @light-bg;
 

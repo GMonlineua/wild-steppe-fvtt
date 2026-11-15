@@ -1,9 +1,5 @@
 export const WILDSTEPPE = {}
 WILDSTEPPE.root_path = 'systems/wild-steppe'
-WILDSTEPPE.defaultTokens = {
-  player: `${WILDSTEPPE.root_path}/assets/tokens/person.png`,
-  ship: `${WILDSTEPPE.root_path}/assets/tokens/iron-hulled-warship.png`,
-}
 WILDSTEPPE.knowledgeMax = 3
 WILDSTEPPE.knowledges = [
   'steppe',

@@ -7,7 +7,6 @@ import WildsteppeActor from './actor.js'
 import WildsteppeAspectSheet from './sheets/aspect.js'
 import WildsteppeFactionSheet from './sheets/faction.js'
 import WildsteppeDicePool from './applications/dice_pool.js'
-import WildsteppeItem from './item.js'
 import WildsteppePlayerSheet from './sheets/player.js'
 import WildsteppeResourceSheet from './sheets/resource.js'
 import WildsteppeShipSheet from './sheets/ship.js'
@@ -31,7 +30,6 @@ Hooks.once('init', () => {
   setupEnrichers()
 
   CONFIG.Actor.documentClass = WildsteppeActor
-  CONFIG.Item.documentClass = WildsteppeItem
 
   foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet)
   foundry.documents.collections.Actors.registerSheet('wildsteppe', WildsteppePlayerSheet, { types: ['player'] })
