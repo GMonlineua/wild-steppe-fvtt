@@ -42,6 +42,10 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
       a.sort < b.sort ? -1 : 1,
     )
 
+    context.projects = this.actor.itemTypes.project.sort((a, b) =>
+      a.sort < b.sort ? -1 : 1,
+    )
+
     context.system.resources = this.actor.itemTypes.resource.sort((a, b) =>
       a.sort < b.sort ? -1 : 1,
     )
@@ -181,6 +185,9 @@ export default class WildsteppePlayerSheet extends WildsteppeActorSheet {
         break
       case 'temporaryAspect':
         this.addTemporaryAspect()
+        break
+      case 'project':
+        this.addProject()
         break
       default:
         ui.notifications.warn(

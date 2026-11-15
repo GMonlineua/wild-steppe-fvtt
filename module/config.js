@@ -28,6 +28,7 @@ WILDSTEPPE.skills = [
   'craft',
   'sense',
 ]
+WILDSTEPPE.slimWithDescription = ['cargo']
 WILDSTEPPE.trackVisibilityOptions = {
   open: 'wildsteppe.TRACKS.open',
   hidden: 'wildsteppe.TRACKS.hidden',

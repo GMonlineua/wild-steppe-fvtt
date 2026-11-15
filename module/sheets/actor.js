@@ -95,6 +95,16 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
     docs.forEach((item) => item.sheet.render(true))
   }
 
+  async addProject() {
+    this.addEmbeddedDocument({
+      name: game.i18n.localize('wildsteppe.newProjectName'),
+      type: 'project',
+      system: {
+        details: game.i18n.localize('wildsteppe.newProjectDetails'),
+      },
+    })
+  }
+
   async addSlimItem(itemType, itemSubtype = null) {
     const data = await renderDialog(
       game.i18n.format('wildsteppe.newSlim', {
@@ -113,6 +123,7 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
       id,
       text,
     }
+    if (data.description !== undefined) slimData.description = data.description
 
     if (itemSubtype) slimData['subtype'] = itemSubtype
 
@@ -142,12 +153,16 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
           type: game.i18n.localize(`wildsteppe.${itemType}`),
         }),
         this.processSlimDialog,
-        item,
+        {
+          ...item,
+          hasDescription: WILDSTEPPE.slimWithDescription.includes(itemType),
+        },
       )
 
       if (data.cancelled || !data.text) return
 
       item.text = data.text
+      if (data.description !== undefined) item.description = data.description
       this.actor.update({
         system: {
           [itemType]: items,
@@ -158,7 +173,10 @@ export default class WildsteppeActorSheet extends foundry.appv1.sheets.ActorShee
 
   processSlimDialog(html) {
     const form = html[0].querySelector('form')
-    return { text: form.text.value.trim() }
+    return {
+      text: form.text.value.trim(),
+      description: form.description?.value.trim(),
+    }
   }
 
   async removeSlimItem(itemId, itemType) {

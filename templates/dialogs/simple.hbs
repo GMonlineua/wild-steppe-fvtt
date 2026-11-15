@@ -1,3 +1,9 @@
 <form class="wildsteppe">
   {{> "systems/wild-steppe/templates/shared/text_field.hbs" field="text" label="wildsteppe.name" value=text}}
+  {{#if hasDescription}}
+    <div class="form-group flexcol">
+      <label>{{localize "wildsteppe.details"}}</label>
+      <textarea name="description" rows="4">{{description}}</textarea>
+    </div>
+  {{/if}}
 </form>
