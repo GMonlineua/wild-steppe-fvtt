@@ -35,6 +35,7 @@
       "path": "lang/uk.json"
     }
   ],
+  "background": "systems/wild-steppe/assets/background.png",
   "packs": [
     {
       "label": "Прегени",
