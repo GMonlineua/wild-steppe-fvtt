@@ -47,6 +47,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "label": "Ресурси",
+      "type": "Item",
+      "name": "resourses",
+      "path": "packs/resourses",
+      "system": "wild-steppe",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [],

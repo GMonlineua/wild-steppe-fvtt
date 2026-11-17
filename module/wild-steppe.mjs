@@ -31,7 +31,9 @@ Hooks.once('init', () => {
 
   CONFIG.Actor.documentClass = WildsteppeActor
 
-  CONFIG.Actor.compendiumBanner = "systems/wild-steppe/assets/banner.png";
+  CONFIG.Actor.compendiumBanner = "systems/wild-steppe/assets/actor-banner.png";
+
+  CONFIG.Item.compendiumBanner = "systems/wild-steppe/assets/item-banner.png";
 
   foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet)
   foundry.documents.collections.Actors.registerSheet('wildsteppe', WildsteppePlayerSheet, { types: ['player'] })
