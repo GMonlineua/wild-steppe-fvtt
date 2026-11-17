@@ -4,7 +4,7 @@
 [![Version]][Version URL]
 [![GNU License]][GNU URL]
 
-Система для гри в [Дике Поле](https://docs.google.com/document/d/1j60B_2hZ5raDHpwnper2HEwS0oOoJmYzV8nuIz5hChs) у Foundry VTT
+Система для гри в [Дике Поле](https://kura.co.ua/dyke-pole-knyha-pravyl-doslidnyk/) у Foundry VTT
 
 ## Встановлення
 
@@ -20,7 +20,7 @@
 ## Права
 
 - Це форк [системи для Wild Sea](https://gitlab.com/pacosgrove1/wildsteppe-foundry) від [Paul C](https://gitlab.com/pacosgrove1)
-- Створена на основі Дикого Поля від Святослава Демченко та Євгена Мокеєва
+- Створена на основі «Дикого Поля» від Святослава Демченко, Євгена Мокеєва та Олексія Марченко
 - Автор: [Vlad Dracula](https://bsky.app/profile/gmonline-ua.bsky.social) (GMonline-ua)
 - Використано шрифт UAFMemoryVFVF від Dmytro Rastvortsev
 
