@@ -12,7 +12,7 @@
 
 1. Усередині екрану "Configuration and Setup" лаучера натисніть "Systems".
 2. Натисніть "Install System".
-3. В полі "Manifest URL" вставте наступне посилання: `https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/master/system.json`
+3. В полі "Manifest URL" вставте наступне посилання: `https://raw.githubusercontent.com/GMonlineua/wild-steppe-fvtt/master/system.json` або знайдіть в пошуку за назвою "Дике поле"
 4. Натисніть 'Install' і дочекайтеся завершення встановлення.
 
 Тепер ви можете створити світ з цією системою і використовувати аркуші персонажів та компендіуми для неї у Foundry VTT!
@@ -21,7 +21,8 @@
 
 - Це форк [системи для Wild Sea](https://gitlab.com/pacosgrove1/wildsteppe-foundry) від [Paul C](https://gitlab.com/pacosgrove1)
 - Створена на основі Дикого Поля від Святослава Демченко та Євгена Мокеєва
-- Автор: Vlad Dracula](https://bsky.app/profile/gmonline-ua.bsky.social) (GMonline-ua)
+- Автор: [Vlad Dracula](https://bsky.app/profile/gmonline-ua.bsky.social) (GMonline-ua)
+- Використано шрифт UAFMemoryVFVF від Dmytro Rastvortsev
 
 [Foundry Shield]: https://img.shields.io/badge/Foundry-14-informational?style=flat-square
 [Foundry URL]: https://foundryvtt.com
